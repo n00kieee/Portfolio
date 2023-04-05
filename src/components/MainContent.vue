@@ -61,11 +61,8 @@
 </template>
 
 <script>
-import AOS from "aos";
-
 export default {
   name: "MainContent",
-
   data: () => {
     return {
       typeValue: "",
@@ -112,9 +109,6 @@ export default {
         setTimeout(this.typeText, this.typingSpeed + 1000);
       }
     },
-    mounted() {
-      AOS.init();
-    }
   },
 }
 </script>

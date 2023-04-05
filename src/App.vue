@@ -5,6 +5,7 @@
     <MainContent id="home"/>
     <SkillsPage id="skills"/>
     <PortfolioCard id="portfolio"/>
+    <ContactPage id="contact"/>
     <FooterPage/>
   </main>
 </template>
@@ -15,7 +16,9 @@ import HeaderPage from "@/components/HeaderPage.vue";
 import MainContent from "@/components/MainContent.vue";
 import SkillsPage from "@/components/SkillsPage.vue";
 import PortfolioCard from "@/components/PortfolioCard.vue";
+import ContactPage from "@/components/ContactPage.vue";
 import FooterPage from "@/components/FooterPage.vue";
+import AOS from "aos";
 
 
 export default {
@@ -25,6 +28,7 @@ export default {
     MainContent,
     SkillsPage,
     PortfolioCard,
+    ContactPage,
     FooterPage,
   },
   data: () => ({
@@ -35,21 +39,26 @@ export default {
       if (document.readyState === "complete") {
         setTimeout(() => {
           this.isLoaded = false;
-        }, 2000);
+        }, 0);
       }
     }
+    AOS.init();
   },
 }
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap');
+
 :root {
-  --bodyColor: linear-gradient(177.9deg, rgb(58, 62, 88) 3.6%, rgb(119, 127, 148) 105.8%);
+  --bodyColor: linear-gradient(0deg, #11053b, #1e0b63, #11053b);
   --mainColor: #00C4F0FF;
-  --gradColor: #456abd;
+  --shadow: 0 8px 17px 2px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
   --white: #fff;
-  --headColor: rgba(75, 81, 94, 0.56);
-  --footColor: #4b515e;
+  --ligth: #a8b2d1;
+  --red: #ff0000;
+  --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+  --transform: translateY(-7px);
 }
 
 * {
@@ -63,17 +72,19 @@ html {
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Chakra Petch', sans-serif;
   overflow-x: hidden;
   overflow-y: scroll;
   background: var(--bodyColor);
+  background-attachment: fixed;
 }
 
 h1 {
   margin: 0 0 30px 4px;
   color: var(--white);
   font-size: 24px;
-  font-weight: 400;
+  font-weight: 600;
+  line-height: 1.1;
 }
 
 p {
@@ -81,7 +92,7 @@ p {
 }
 
 a {
-  color: rgba(255, 255, 255, 0.99);
+  color: var(--white);
   text-decoration: none;
 }
 
@@ -99,20 +110,15 @@ img {
   border-radius: 30px;
 }
 
-/* Default class */
-.text-center {
-  text-align: center;
-}
-
-/* Default class end */
-
 header {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
-  background-color: var(--headColor);
   position: fixed;
+  backdrop-filter: blur(10px);
+  transition: var(--transition);
+  box-shadow: var(--shadow);
   top: 0;
   width: 100%;
   z-index: 1;
@@ -130,10 +136,15 @@ footer {
   justify-content: space-evenly;
   align-items: center;
   flex-direction: row;
-  background-color: var(--footColor);
   flex-wrap: wrap;
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow);
   margin: auto;
   padding: 0 15px;
+}
+
+section {
+  padding: 100px;
 }
 
 .container {
@@ -176,6 +187,7 @@ footer {
   margin: 0;
   padding: 0;
   bottom: 0;
+  z-index: 999;
 }
 
 .content-social a {
@@ -199,7 +211,7 @@ footer {
 .info-me {
   margin: 0;
   font-size: 45px;
-  color: var(--white);
+  color: var(--ligth);
 }
 
 .bio {
@@ -219,6 +231,7 @@ footer {
   position: fixed;
   right: 35px;
   bottom: 0;
+  z-index: 999;
 }
 
 .email a {
@@ -244,56 +257,116 @@ footer {
 }
 
 .section-name {
+  text-align: center;
   padding-top: 20px;
 }
 
-.card {
+.skills-card {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 250px;
   height: 250px;
   margin: 50px;
-  background: linear-gradient(130.68deg, #414141 0%, #2D2D2D 100.52%);
-  box-shadow: 0 4px 15px rgba(27, 27, 27, 0.28);
-  border-radius: 5px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  border-radius: 15px;
 }
 
-.card:hover {
-  transform: scale(1.02);
-  transition: all .4s;
-  box-shadow: 0 0 120px -55px var(--mainColor);
+.skills-lang {
+  text-align: center;
 }
 
-.progress-bar {
+.skills-progress-bar {
   width: 160px;
   border: 1px solid #aaa;
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 3px;
   margin: 10px;
 }
 
-.bar {
-  background: linear-gradient(to right, var(--mainColor), var(--gradColor));
+.skills-bar {
+  background: linear-gradient(to right, var(--mainColor), var(--ligth));
   height: 20px;
   width: 15px;
-  border-radius: 5px;
+  border-radius: 7px;
 }
 
-.bar span {
+.skills-bar span {
   float: right;
   padding: 4px 5px;
   color: #fff;
   font-size: 0.7em;
 }
 
+.project-card {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  flex-basis: 25%;
+  width: 500px;
+  height: 500px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  border-radius: 15px;
+  margin: 20px;
+}
 
-/*portfolio-card*/
+.project-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
 
+.project-folder {
+  position: relative;
+  margin-left: 10px;
+  bottom: 55px;
+}
 
+.project-link {
+  position: relative;
+  bottom: 55px;
+}
 
-/*portfolio-card-end*/
+.project-link svg {
+  width: 30px;
+  height: 30px;
+}
 
+.project-link a {
+  margin-right: 10px;
+}
+
+.project-name {
+  font-size: 22px;
+}
+
+.project-info {
+  font-size: 17px;
+}
+
+.project-features {
+  display: flex;
+}
+
+.project-lang {
+  border: 1px solid var(--mainColor);
+  border-radius: 8px;
+  margin: 5px;
+  padding: 8px;
+  transition: var(--transition);
+  cursor: text;
+}
+
+.project-lang:hover {
+  background-color: var(--mainColor);
+}
 
 .social-footer {
   padding: 10px;
@@ -355,16 +428,6 @@ footer {
   .email {
     display: none;
   }
-
-  /*.port-card {*/
-  /*  flex-wrap: wrap;*/
-  /*  justify-content: center;*/
-  /*}*/
-
-  /*.port-links {*/
-  /*  justify-content: center;*/
-  /*  margin-bottom: 30px;*/
-  /*}*/
 
   .footer-nav {
     display: none;

@@ -1,7 +1,7 @@
 <template>
   <transition name="fade">
-    <div class="preloader">
-      <div class="loading"></div>
+    <div class="loader">Loading
+      <span></span>
     </div>
   </transition>
 </template>
@@ -13,30 +13,81 @@ export default {
 </script>
 
 <style scoped>
-.preloader {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.loader {
   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150px;
+  height: 150px;
+  background: transparent;
+  border: 3px solid #3c3c3c;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 150px;
+  font-family: sans-serif;
+  font-size: 20px;
+  color: #006eff;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px #006eff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+}
+
+.loader:before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
   width: 100%;
   height: 100%;
-  background-color: #000000;
-  z-index: 9999;
+  border: 3px solid transparent;
+  border-top: 3px solid #006eff;
+  border-right: 3px solid #006eff;
+  border-radius: 50%;
+  animation: animateC 2s linear infinite;
 }
 
-.loading {
-  height: 70px;
-  width:  70px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: transparent transparent transparent #00C4F0FF;
-  border-radius: 100%;
-  animation: rotate 0.75s linear infinite;
+span {
+  display: block;
+  position: absolute;
+  top: calc(50% - 2px);
+  left: 50%;
+  width: 50%;
+  height: 4px;
+  background: transparent;
+  transform-origin: left;
+  animation: animate 2s linear infinite;
 }
 
-@keyframes rotate {
-  to {transform: rotate(360deg) translatez(0);}
+span:before {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #006eff;
+  top: -6px;
+  right: -8px;
+  box-shadow: 0 0 20px #006eff;
+}
+
+@keyframes animateC {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(45deg);
+  }
+  100% {
+    transform: rotate(405deg);
+  }
 }
 
 .fade-enter-active, .fade-leave-active {

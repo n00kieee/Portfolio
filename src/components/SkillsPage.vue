@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="section-name text-center">
+    <div class="section-name">
       <h1
           data-aos="fade-left"
           data-aos-offset="300"
@@ -8,14 +8,14 @@
       >Skills</h1>
     </div>
     <div class="container">
-      <div class="card"
+      <div class="skills-card"
            v-for="skills in skills"
            :key="skills"
            data-aos="fade-left"
            data-aos-offset="300"
            data-aos-easing="ease-in-sine"
       >
-        <div class="lang text-center">
+        <div class="skills-lang">
           <font-awesome-icon
               :icon="skills.icon"
               size="5x"
@@ -23,14 +23,13 @@
           />
           <p>{{ skills.name }}</p>
 
-          <div class="progress-bar">
-            <div class="bar" :style="{ width: skills.progress + '%' }">
+          <div class="skills-progress-bar">
+            <div class="skills-bar" :style="{ width: skills.progress + '%' }">
               <span>
                 {{ skills.progress }}%
               </span>
             </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -39,7 +38,6 @@
 
 <script>
 import {faVuejs, faJs, faHtml5, faCss3} from "@fortawesome/free-brands-svg-icons";
-import AOS from "aos";
 
 export default {
   name: "SkillsPage",
@@ -48,32 +46,29 @@ export default {
       {
         id: 1,
         name: "HTML",
-        progress: 80,
+        progress: 70,
         icon: faHtml5
       },
       {
         id: 2,
         name: "CSS",
-        progress: 80,
+        progress: 70,
         icon: faCss3
       },
       {
         id: 3,
         name: "JavaScript",
-        progress: 70,
+        progress: 60,
         icon: faJs
       },
       {
         id: 4,
         name: "VueJS",
-        progress: 60,
+        progress: 50,
         icon: faVuejs
       },
     ],
   }),
-  mounted() {
-    AOS.init();
-  }
 }
 </script>
 

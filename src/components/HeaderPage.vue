@@ -1,10 +1,9 @@
 <template>
-  <header :class="{'headroom--unpinned': scrolled}" v-on="handleScroll">
-    <div class="logo"
-         data-aos="fade-right"
-         data-aos-duration="3000"
-    >
-      <h1>Portfolio</h1>
+  <header :class="{'headroom--unpinned': scrolled}" @scroll="handleScroll">
+    <div class="logo">
+      <a href="#">
+
+      </a>
     </div>
     <nav class="header-nav"
          data-aos="fade-left"
@@ -13,7 +12,7 @@
       <a href="#home">Home</a>
       <a href="#skills">Skills</a>
       <a href="#portfolio">Portfolio</a>
-      <a href="#about-me">About-me</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 </template>
