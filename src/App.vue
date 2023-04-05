@@ -35,7 +35,7 @@ export default {
       if (document.readyState === "complete") {
         setTimeout(() => {
           this.isLoaded = false;
-        }, 2000);
+        }, 2);
       }
     }
   },
@@ -44,12 +44,14 @@ export default {
 
 <style>
 :root {
-  --bodyColor: linear-gradient(177.9deg, rgb(58, 62, 88) 3.6%, rgb(119, 127, 148) 105.8%);
+  --bodyColor: #0a192f;
   --mainColor: #00C4F0FF;
-  --gradColor: #456abd;
+  --cardColor: #112240;
+  --shadow: rgba(2,12,27,0.7);
   --white: #fff;
-  --headColor: rgba(75, 81, 94, 0.56);
-  --footColor: #4b515e;
+  --ligth: #a8b2d1;
+  --transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
+  --transform: translateY(-7px);
 }
 
 * {
@@ -71,13 +73,14 @@ body {
 
 h1 {
   margin: 0 0 30px 4px;
-  color: var(--white);
+  color: var(--ligth);
   font-size: 24px;
-  font-weight: 400;
+  font-weight: 600;
+  line-height: 1.1;
 }
 
 p {
-  color: var(--white);
+  color: var(--ligth);
 }
 
 a {
@@ -111,8 +114,11 @@ header {
   justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
-  background-color: var(--headColor);
   position: fixed;
+  background-color: rgba(10, 25, 47, 0.85);
+  backdrop-filter: blur(10px);
+  transition: var(--transition);
+  box-shadow: 0 10px 30px -10px var(--shadow);
   top: 0;
   width: 100%;
   z-index: 1;
@@ -130,7 +136,6 @@ footer {
   justify-content: space-evenly;
   align-items: center;
   flex-direction: row;
-  background-color: var(--footColor);
   flex-wrap: wrap;
   margin: auto;
   padding: 0 15px;
@@ -254,30 +259,25 @@ footer {
   width: 250px;
   height: 250px;
   margin: 50px;
-  background: linear-gradient(130.68deg, #414141 0%, #2D2D2D 100.52%);
-  box-shadow: 0 4px 15px rgba(27, 27, 27, 0.28);
-  border-radius: 5px;
-}
-
-.card:hover {
-  transform: scale(1.02);
-  transition: all .4s;
-  box-shadow: 0 0 120px -55px var(--mainColor);
+  background: var(--cardColor);
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  border-radius: 15px;
 }
 
 .progress-bar {
   width: 160px;
   border: 1px solid #aaa;
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 3px;
   margin: 10px;
 }
 
 .bar {
-  background: linear-gradient(to right, var(--mainColor), var(--gradColor));
+  background: linear-gradient(to right, var(--mainColor), var(--ligth));
   height: 20px;
   width: 15px;
-  border-radius: 5px;
+  border-radius: 7px;
 }
 
 .bar span {
