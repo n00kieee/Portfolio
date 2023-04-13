@@ -1,55 +1,51 @@
 <template>
   <div class="container" @keydown.esc="closeForm">
-    <button class="btn-contact"
-            @click="openForm"
-    >
-      Contact me
-    </button>
-    <div class="form-container"
-         @click.self="closeForm"
-         v-if="isClick === true"
-         data-aos="zoom-in"
+    <!--  TODO: Вынести кнопку в кастомный компонент  -->
+    <button class="btn-contact" @click="openForm">Contact me</button>
+    <div
+      class="form-container"
+      @click.self="closeForm"
+      v-if="isClick === true"
+      data-aos="zoom-in"
     >
       <div class="form-contact">
+        <!--    TODO: Вынести форму в отдельный комопонент    -->
         <form @submit.prevent="sendEmail">
           <label>Name</label>
           <input
-              type="text"
-              v-model="name"
-              name="name"
-              placeholder="Your Name"
-
-          >
+            type="text"
+            v-model="name"
+            name="name"
+            placeholder="Your Name"
+          />
+          <!--     TODO: Вынести Label и input в компонент отдельный     -->
           <label>Email</label>
           <input
-              type="email"
-              v-model="email"
-              name="email"
-              placeholder="Your Email"
-
-          >
+            type="email"
+            v-model="email"
+            name="email"
+            placeholder="Your Email"
+          />
+          <!--     TODO: Вынести в компонент     -->
           <label>Message</label>
           <textarea
-              name="message"
-              v-model="message"
-              cols="30" rows="5"
-              placeholder="Message"
-
+            name="message"
+            v-model="message"
+            cols="30"
+            rows="5"
+            placeholder="Message"
           >
           </textarea>
-          <button class="btn-send"
-                  type="submit"
-                  :class="{ 'btn-send--is-active' : isLoad }"
+          <button
+            class="btn-send"
+            type="submit"
+            :class="{ 'btn-send--is-active': isLoad }"
           >
             <span v-show="!isLoad">Send</span>
+            <!--     TODO: Лоадер вынести в компонент       -->
             <span v-show="isLoad">{{ errorText }} {{ sendText }}</span>
           </button>
-          <button
-              class="btn-close"
-              @click="closeForm"
-          >
-            Close
-          </button>
+          <button class="btn-close" @click="closeForm">Close</button>
         </form>
       </div>
     </div>
@@ -57,41 +53,52 @@
 </template>
 
 <script>
-import emailJs from 'emailjs-com';
+import emailJs from "emailjs-com";
 
 export default {
-  name: 'ContactPage',
+  name: "ContactPage",
   data() {
     return {
-      name: '',
-      email: '',
-      message: '',
-      sendText: '',
-      errorText: '',
+      name: "",
+      email: "",
+      message: "",
+      sendText: "",
+      errorText: "",
       isClick: false,
-      isLoad: false
-    }
+      isLoad: false,
+    };
   },
   methods: {
     sendEmail(e) {
       this.isLoad = true;
       setTimeout(() => {
         this.isLoad = false;
+        this.isClick = false;
       }, 2000);
-      emailJs.sendForm('service_j9eiehd', 'template_j4rkg8s', e.target,
-          'GaJgQBvIu8C3rmAyO', {
+      // TODO: ПЕРЕДЕЛАТЬ НА АСИНК ЭВЭИТ БЛЯТЬ НАХУЙ ПРОМИСЫ
+      emailJs
+        .sendForm(
+          "service_j9eiehd",
+          "template_j4rkg8s",
+          e.target,
+          "GaJgQBvIu8C3rmAyO",
+          {
             name: this.name,
             email: this.email,
-            message: this.message
-          })
-          .then(() => {
-            this.sendText = 'Sending..'
-          }, () => {
-            this.errorText = 'Error'
-          });
-      this.name = ''
-      this.email = ''
-      this.message = ''
+            message: this.message,
+          }
+        )
+        .then(
+          () => {
+            this.sendText = "Sending..";
+          },
+          () => {
+            this.errorText = "Error";
+          }
+        );
+      this.name = "";
+      this.email = "";
+      this.message = "";
     },
     openForm() {
       this.isClick = true;
@@ -99,9 +106,8 @@ export default {
     closeForm() {
       this.isClick = false;
     },
-  }
-}
-
+  },
+};
 </script>
 
 <style>
@@ -116,7 +122,8 @@ export default {
   cursor: pointer;
 }
 
-.btn-send:hover, .btn-send:focus {
+.btn-send:hover,
+.btn-send:focus {
   background-color: var(--mainColor);
 }
 
@@ -132,7 +139,7 @@ export default {
   display: inline-block;
   width: 10px;
   height: 10px;
-  content: '';
+  content: "";
   border-radius: 24px;
   background-clip: padding-box;
   border: var(--mainColor) 2px solid;
@@ -210,7 +217,9 @@ label {
   color: var(--ligth);
 }
 
-input[type=text], [type=email], textarea {
+input[type="text"],
+[type="email"],
+textarea {
   width: 100%;
   padding: 12px;
   border: 1px solid var(--ligth);

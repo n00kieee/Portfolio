@@ -1,39 +1,38 @@
 <template>
   <section>
     <div class="section-name">
+    <!--  TODO: Выносить  -->
       <h1
-          data-aos="fade-right"
-          data-aos-offset="300"
-          data-aos-easing="ease-in-sine"
-      >Portfolio
+        data-aos="fade-right"
+        data-aos-offset="300"
+        data-aos-easing="ease-in-sine"
+      >
+        Portfolio
       </h1>
     </div>
     <div class="container">
-      <div class="project-card"
-           v-for="project in project"
-           :key="project"
-           data-aos="fade-right"
-           data-aos-offset="300"
-           data-aos-easing="ease-in-sine"
+      <div
+        class="project-card"
+        v-for="project in project"
+        :key="project"
+        data-aos="fade-right"
+        data-aos-offset="300"
+        data-aos-easing="ease-in-sine"
       >
         <div class="project-top">
           <div class="project-folder">
-            <font-awesome-icon
-                :icon="iconFolder"
-                size="2x"
-                color="#00C4F0FF"
-            />
+            <font-awesome-icon :icon="iconFolder" size="2x" color="#00C4F0FF" />
           </div>
           <div class="project-link">
             <a v-bind:href="project.linkDemo" target="_blank">
-              <font-awesome-icon
-                  :icon="iconLaptop"
-              />
+              <font-awesome-icon :icon="iconLaptop" />
             </a>
-            <a v-bind:href="project.linkGitHub" target="_blank" aria-label="Github">
-              <font-awesome-icon
-                  :icon="iconGitHub"
-              />
+            <a
+              v-bind:href="project.linkGitHub"
+              target="_blank"
+              aria-label="Github"
+            >
+              <font-awesome-icon :icon="iconGitHub" />
             </a>
           </div>
         </div>
@@ -44,10 +43,7 @@
           <p>{{ project.info }}</p>
         </div>
         <div class="project-features">
-          <div class="project-lang"
-               v-for="i in project.lang"
-               :key="i.id"
-          >
+          <div class="project-lang" v-for="i in project.lang" :key="i.id">
             <p>{{ i.name }}</p>
           </div>
         </div>
@@ -57,8 +53,8 @@
 </template>
 
 <script>
-import {faLaptopCode, faFolder} from "@fortawesome/free-solid-svg-icons";
-import {faGithub} from "@fortawesome/free-brands-svg-icons";
+import { faLaptopCode, faFolder } from "@fortawesome/free-solid-svg-icons";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 export default {
   name: "PortfolioCard",
@@ -76,13 +72,13 @@ export default {
         lang: [
           {
             id: Date.now(),
-            name: "Vue"
+            name: "Vue",
           },
           {
             id: Date.now(),
-            name: "Axios"
+            name: "Axios",
           },
-        ]
+        ],
       },
       {
         id: 2,
@@ -93,13 +89,13 @@ export default {
         lang: [
           {
             id: Date.now(),
-            name: "Vue"
+            name: "Vue",
           },
           {
             id: Date.now(),
-            name: "JS"
+            name: "JS",
           },
-        ]
+        ],
       },
       {
         id: 3,
@@ -110,19 +106,17 @@ export default {
         lang: [
           {
             id: Date.now(),
-            name: "Vue"
+            name: "Vue",
           },
           {
             id: Date.now(),
-            name: "JS"
+            name: "JS",
           },
-        ]
+        ],
       },
     ],
   }),
-}
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

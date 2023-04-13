@@ -1,14 +1,12 @@
 <template>
-  <header :class="{'headroom--unpinned': scrolled}" @scroll="handleScroll">
+  <header :class="{ 'headroom--unpinned': scrolled }" @scroll="handleScroll">
+    <!--  TODO: Вынести лого в компонент  -->
     <div class="logo">
-      <a href="#">
-
-      </a>
+      <!--   TODO: Доделать   -->
+      <a href="#"> </a>
     </div>
-    <nav class="header-nav"
-         data-aos="fade-left"
-         data-aos-duration="3000"
-    >
+    <!--  TODO: Вынести в компонент  -->
+    <nav class="header-nav" data-aos="fade-left" data-aos-duration="3000">
       <a href="#home">Home</a>
       <a href="#skills">Skills</a>
       <a href="#portfolio">Portfolio</a>
@@ -24,12 +22,15 @@ export default {
     return {
       limitPosition: 50,
       scrolled: false,
-      lastPosition: 0
-    }
+      lastPosition: 0,
+    };
   },
   methods: {
     handleScroll() {
-      if (this.lastPosition < window.scrollY && this.limitPosition < window.scrollY) {
+      if (
+        this.lastPosition < window.scrollY &&
+        this.limitPosition < window.scrollY
+      ) {
         this.scrolled = true;
       }
       if (this.lastPosition > window.scrollY) {
@@ -43,8 +44,8 @@ export default {
   },
   destroyed() {
     window.removeEventListener("scroll", this.handleScroll);
-  }
-}
+  },
+};
 </script>
 
 <style scoped>
