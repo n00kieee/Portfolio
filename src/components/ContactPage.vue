@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" @keydown.esc="closeForm">
     <button class="btn-contact"
             @click="openForm"
     >
@@ -97,7 +97,6 @@ export default {
       this.isClick = true;
     },
     closeForm() {
-      this.isLoad = false;
       this.isClick = false;
     },
   }
