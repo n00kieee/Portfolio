@@ -9,7 +9,6 @@
 <script>
 export default {
   name: "PreloaderPage",
-  // TODO: TEST
 }
 </script>
 

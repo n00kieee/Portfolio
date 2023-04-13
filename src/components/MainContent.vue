@@ -1,59 +1,43 @@
 <template>
   <section>
     <div class="content-info">
-      <div class="content-social"
-           data-aos="fade-up"
-           data-aos-duration="3000"
-      >
+      <div class="content-social" data-aos="fade-up" data-aos-duration="3000">
         <a href="#">
-          <font-awesome-icon
-              icon="fa-brands fa-github"
-              size="2x"
-          />
+          <font-awesome-icon icon="fa-brands fa-github" size="2x" />
         </a>
         <a href="#">
-          <font-awesome-icon
-              icon="fa-brands fa-telegram-plane"
-              size="2x"
-          />
+          <font-awesome-icon icon="fa-brands fa-telegram-plane" size="2x" />
         </a>
         <a href="#">
-          <font-awesome-icon
-              icon="fa-brands fa-discord"
-              size="2x"
-          />
+          <font-awesome-icon icon="fa-brands fa-discord" size="2x" />
         </a>
         <a href="#">
-          <font-awesome-icon
-              icon="fa-brands fa-instagram"
-              size="2x"
-          />
+          <font-awesome-icon icon="fa-brands fa-instagram" size="2x" />
         </a>
       </div>
 
-      <div class="info"
-           data-aos="fade-right"
-           data-aos-offset="300"
-           data-aos-easing="ease-in-sine"
+      <div
+        class="info"
+        data-aos="fade-right"
+        data-aos-offset="300"
+        data-aos-easing="ease-in-sine"
       >
         <h1>Hello 👋</h1>
 
-        <h2 class="info-me">I'm <span>{{ typeValue }}</span>
+        <h2 class="info-me">
+          I'm <span>{{ typeValue }}</span>
           <span class="blinking-cursor">|</span>
           <span class="cursor" :class="{ typing: typeStatus }">&nbsp;</span>
         </h2>
-        <p class="bio">Lorem ipsum dolor sit amet, consectetur
-          adipisicing elit. Atque consectetur cum
-          doloremque ducimus eum, exercitationem
-          hic, illo laborum laudantium molestias
-          officiis possimus, quisquam repellendus
-          reprehenderit soluta ut vitae voluptates</p>
+        <p class="bio">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque
+          consectetur cum doloremque ducimus eum, exercitationem hic, illo
+          laborum laudantium molestias officiis possimus, quisquam repellendus
+          reprehenderit soluta ut vitae voluptates
+        </p>
       </div>
 
-      <div class="email"
-           data-aos="fade-up"
-           data-aos-duration="3000"
-      >
+      <div class="email" data-aos="fade-up" data-aos-duration="3000">
         <a href="mailto:stak3k@gmail.com">stak3k@gmail.com</a>
       </div>
     </div>
@@ -80,11 +64,14 @@ export default {
   },
   methods: {
     typeText() {
-      if (this.charIndex < this.displayTextArray[this.displayTextArrayIndex].length) {
+      if (
+        this.charIndex <
+        this.displayTextArray[this.displayTextArrayIndex].length
+      ) {
         if (!this.typeStatus) this.typeStatus = true;
-        this.typeValue += this.displayTextArray[this.displayTextArrayIndex].charAt(
-            this.charIndex
-        );
+        this.typeValue += this.displayTextArray[
+          this.displayTextArrayIndex
+        ].charAt(this.charIndex);
         this.charIndex += 1;
         setTimeout(this.typeText, this.typingSpeed);
       } else {
@@ -95,10 +82,9 @@ export default {
     eraseText() {
       if (this.charIndex > 0) {
         if (!this.typeStatus) this.typeStatus = true;
-        this.typeValue = this.displayTextArray[this.displayTextArrayIndex].substring(
-            0,
-            this.charIndex - 1
-        );
+        this.typeValue = this.displayTextArray[
+          this.displayTextArrayIndex
+        ].substring(0, this.charIndex - 1);
         this.charIndex -= 1;
         setTimeout(this.eraseText, this.erasingSpeed);
       } else {
@@ -110,7 +96,7 @@ export default {
       }
     },
   },
-}
+};
 </script>
 
 <style scoped>
@@ -126,7 +112,7 @@ export default {
     color: transparent;
   }
   50% {
-    color: #00C4F0FF;
+    color: #00c4f0ff;
   }
 }
 </style>

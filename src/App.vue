@@ -20,7 +20,6 @@ import ContactPage from "@/components/ContactPage.vue";
 import FooterPage from "@/components/FooterPage.vue";
 import AOS from "aos";
 
-
 export default {
   components: {
     PreloaderPage,
