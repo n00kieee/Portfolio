@@ -1,6 +1,17 @@
 <template>
   <div class="container" @keydown.esc="closeForm">
-    <button class="btn-contact" @click="openForm">Contact me</button>
+    <CustomButton
+      @click="openForm"
+      :width="'150px'"
+      :height="'50px'"
+      :background-color="'bodyColor'"
+      :color="'white'"
+      :hover-color="'var(--mainColor)'"
+      :border="'1px solid var(--mainColor)'"
+      class="btn-contact"
+    >
+      Contact me
+    </CustomButton>
     <div
       class="form-container"
       @click.self="closeForm"
@@ -9,48 +20,51 @@
     >
       <div class="form-contact">
         <form @submit.prevent="sendEmail">
-          <label>Name</label>
-          <input
-            type="text"
+          <CustomInput
             v-model="name"
-            name="name"
+            id="name"
+            type="name"
+            label="Name"
             placeholder="Your Name"
           />
-          <label>Email</label>
-          <input
-            type="email"
+          <CustomInput
             v-model="email"
-            name="email"
+            id="email"
+            type="email"
+            label="Email"
             placeholder="Your Email"
           />
-          <label>Message</label>
-          <textarea
-            name="message"
+
+          <CustomTextArea
             v-model="message"
-            cols="30"
-            rows="5"
+            name="message"
+            :cols="30"
+            :rows="5"
             placeholder="Message"
           >
-          </textarea>
-          <button
-            class="btn-send"
+          </CustomTextArea>
+
+          <CustomButton
             type="submit"
+            :background-color="'bodyColor'"
+            :color="'white'"
+            :border="'1px solid var(--mainColor)'"
+            :hover-color="'var(--mainColor)'"
             :class="{ 'btn-send--is-active': isLoad }"
           >
             <span v-show="!isLoad">Send</span>
             <span v-show="isLoad">{{ errorText }} {{ sendText }}</span>
-          </button>
-
-          <!--          <button class="btn-close" @click="closeForm">Close</button>-->
+          </CustomButton>
 
           <CustomButton
             :background-color="'bodyColor'"
             :color="'white'"
             :border="'1px solid var(--red)'"
             :hover-color="'var(--red)'"
-            class="close"
+            class="btn-close"
             @click="closeForm"
-            >Close
+          >
+            Close
           </CustomButton>
         </form>
       </div>
@@ -61,10 +75,12 @@
 <script>
 import emailJs from "emailjs-com";
 import CustomButton from "@/components/UI/CustomButton.vue";
+import CustomInput from "@/components/UI/CustomInput.vue";
+import CustomTextArea from "@/components/UI/CustomTextArea.vue";
 
 export default {
   name: "ContactPage",
-  components: { CustomButton },
+  components: { CustomTextArea, CustomInput, CustomButton },
   data() {
     return {
       name: "",
@@ -98,7 +114,6 @@ export default {
       } catch (error) {
         this.errorText = "Error";
       }
-
       this.name = "";
       this.email = "";
       this.message = "";
@@ -114,17 +129,6 @@ export default {
 </script>
 
 <style>
-.btn-send {
-  background-color: var(--bodyColor);
-  box-shadow: var(--shadow);
-  border: 1px solid var(--mainColor);
-  transition: var(--transition);
-  color: var(--white);
-  padding: 12px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
 .btn-send:hover,
 .btn-send:focus {
   background-color: var(--mainColor);
@@ -179,35 +183,14 @@ export default {
 }
 
 .btn-contact {
-  width: 150px;
-  height: 50px;
   margin: 100px;
-  background-color: var(--bodyColor);
-  transition: var(--transition);
-  cursor: pointer;
-  border-radius: 8px;
-  color: var(--white);
-  box-shadow: var(--shadow);
-  border: 1px solid var(--mainColor);
 }
 
 .btn-contact:hover {
   background-color: var(--mainColor);
 }
 
-.close {
-  margin-left: 10px;
-}
-
 .btn-close {
-  background-color: var(--bodyColor);
-  box-shadow: var(--shadow);
-  border: 1px solid var(--red);
-  transition: var(--transition);
-  color: var(--white);
-  padding: 12px 20px;
-  border-radius: 8px;
-  cursor: pointer;
   margin-left: 10px;
 }
 
@@ -217,23 +200,5 @@ export default {
 
 form {
   margin: 60px;
-}
-
-label {
-  float: left;
-  color: var(--ligth);
-}
-
-input[type="text"],
-[type="email"],
-textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid var(--ligth);
-  border-radius: 8px;
-  box-sizing: border-box;
-  margin-top: 6px;
-  margin-bottom: 16px;
-  resize: vertical;
 }
 </style>
