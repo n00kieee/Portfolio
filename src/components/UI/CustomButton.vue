@@ -1,13 +1,6 @@
 <template>
   <button
     class="btn-static"
-    :style="{
-      color: `var(--${color})`,
-      backgroundColor: `var(--${backgroundColor})`,
-      border: border,
-      width: width,
-      height: height,
-    }"
     :type="type"
     @click="onClickHandler"
   >
@@ -46,9 +39,14 @@ export default {
   box-shadow: var(--shadow);
   border: 1px solid var(--mainColor);
   padding: 12px 20px;
+  background-color: v-bind(backgroundColor);
+  color: v-bind(color);
+  border: v-bind(border);
+  width: v-bind(width);
+  height: v-bind(height);
 }
 
-.btn-static:hover {
-  background: v-bind(hoverColor);
+button:hover {
+  background-color: v-bind(hoverColor);
 }
 </style>

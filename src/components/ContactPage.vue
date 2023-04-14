@@ -47,7 +47,7 @@
             :background-color="'bodyColor'"
             :color="'white'"
             :border="'1px solid var(--red)'"
-            :hover-color="'var(--red)'"
+            :hover-color="'red'"
             class="close"
             @click="closeForm"
             >Close
