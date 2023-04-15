@@ -33,7 +33,7 @@ export default {
   },
   methods: {
     textArea(event) {
-      this.$emit("update:modelValue", event.target.value)
+      this.$emit("modelValue", event.target.value)
     }
   },
 };
