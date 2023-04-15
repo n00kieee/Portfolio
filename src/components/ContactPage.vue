@@ -23,15 +23,15 @@
           <CustomInput
             v-model="name"
             id="name"
-            type="name"
-            label="Name"
+            :type="name"
+            :label="Name"
             placeholder="Your Name"
           />
           <CustomInput
             v-model="email"
             id="email"
-            type="email"
-            label="Email"
+            :type="email"
+            :label="Email"
             placeholder="Your Email"
           />
 
