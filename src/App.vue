@@ -38,7 +38,7 @@ export default {
       if (document.readyState === "complete") {
         setTimeout(() => {
           this.isLoaded = false;
-        }, 0);
+        }, 2000);
       }
     }
     AOS.init();
@@ -198,6 +198,11 @@ section {
   box-shadow: 0 0 120px -55px var(--mainColor);
 }
 
+.content-social svg {
+  font-size: 20px;
+  color: var(--white);
+}
+
 .content-social::after {
   content: "";
   display: block;
@@ -234,6 +239,7 @@ section {
 }
 
 .email a {
+  font-size: 14px;
   margin: 5px auto;
   padding: 10px;
   letter-spacing: 0.1em;
@@ -328,14 +334,20 @@ section {
   bottom: 55px;
 }
 
+.project-folder svg {
+  width: 40px;
+  height: 40px;
+  color: var(--mainColor);
+}
+
 .project-link {
   position: relative;
   bottom: 55px;
 }
 
 .project-link svg {
-  width: 30px;
-  height: 30px;
+  width: 24px;
+  height: 24px;
 }
 
 .project-link a {
@@ -347,6 +359,7 @@ section {
 }
 
 .project-info {
+  padding: 30px;
   font-size: 17px;
 }
 
@@ -426,6 +439,14 @@ section {
 
   .email {
     display: none;
+  }
+
+  .skills-card {
+    min-width: 340px;
+  }
+
+  .project-card {
+    min-width: 340px;
   }
 
   .footer-nav {

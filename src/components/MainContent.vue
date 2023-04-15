@@ -3,16 +3,16 @@
     <div class="content-info">
       <div class="content-social" data-aos="fade-up" data-aos-duration="3000">
         <a href="#">
-          <font-awesome-icon icon="fa-brands fa-github" size="2x" />
+          <GitHubIcon/>
         </a>
         <a href="#">
-          <font-awesome-icon icon="fa-brands fa-telegram-plane" size="2x" />
+          <TelegramIcon/>
         </a>
         <a href="#">
-          <font-awesome-icon icon="fa-brands fa-discord" size="2x" />
+          <DiscordIcon/>
         </a>
         <a href="#">
-          <font-awesome-icon icon="fa-brands fa-instagram" size="2x" />
+          <InstagramIcon/>
         </a>
       </div>
 
@@ -45,7 +45,18 @@
 </template>
 
 <script>
+import GitHubIcon from "@/components/Icons/GitHubIcon.vue";
+import TelegramIcon from "@/components/Icons/TelegramIcon.vue";
+import DiscordIcon from "@/components/Icons/DiscordIcon.vue";
+import InstagramIcon from "@/components/Icons/InstagramIcon.vue";
+
 export default {
+  components: {
+    GitHubIcon,
+    TelegramIcon,
+    DiscordIcon,
+    InstagramIcon
+  },
   name: "MainContent",
   data: () => {
     return {

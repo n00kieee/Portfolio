@@ -8,7 +8,7 @@
     :value="modelValue"
     :placeholder="placeholder"
     :required="required"
-    @input="input"
+    @input="inputHandler"
   />
 </template>
 
@@ -41,7 +41,7 @@ export default {
     },
   },
   methods: {
-    input(event) {
+    inputHandler(event) {
       this.$emit("modelValue", event.target.value);
     },
   },

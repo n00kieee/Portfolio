@@ -5,7 +5,7 @@
     :value="modelValue"
     :cols="cols"
     :rows="rows"
-    @textarea="textArea"
+    @textarea="textAreaHandler"
   >
   </textarea>
 </template>
@@ -32,7 +32,7 @@ export default {
     },
   },
   methods: {
-    textArea(event) {
+    textAreaHandler(event) {
       this.$emit("modelValue", event.target.value)
     }
   },

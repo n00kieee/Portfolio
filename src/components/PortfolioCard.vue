@@ -1,7 +1,6 @@
 <template>
   <section>
     <div class="section-name">
-    <!--  TODO: Выносить  -->
       <h1
         data-aos="fade-right"
         data-aos-offset="300"
@@ -21,18 +20,18 @@
       >
         <div class="project-top">
           <div class="project-folder">
-            <font-awesome-icon :icon="iconFolder" size="2x" color="#00C4F0FF" />
+            <FolderIcon/>
           </div>
           <div class="project-link">
             <a v-bind:href="project.linkDemo" target="_blank">
-              <font-awesome-icon :icon="iconLaptop" />
+              <ExternalLinkIcon/>
             </a>
             <a
               v-bind:href="project.linkGitHub"
               target="_blank"
               aria-label="Github"
             >
-              <font-awesome-icon :icon="iconGitHub" />
+              <GitHubIcon/>
             </a>
           </div>
         </div>
@@ -53,22 +52,25 @@
 </template>
 
 <script>
-import { faLaptopCode, faFolder } from "@fortawesome/free-solid-svg-icons";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import GitHubIcon from "@/components/Icons/GitHubIcon.vue";
+import ExternalLinkIcon from "@/components/Icons/ExternalLinkIcon.vue";
+import FolderIcon from "@/components/Icons/FolderIcon.vue";
 
 export default {
+  components: {
+    GitHubIcon,
+    ExternalLinkIcon,
+    FolderIcon
+  },
   name: "PortfolioCard",
   data: () => ({
-    iconLaptop: faLaptopCode,
-    iconFolder: faFolder,
-    iconGitHub: faGithub,
     project: [
       {
         id: 1,
         name: "Kinopoisk API",
         linkGitHub: "https://github.com/n00kieee/api-kinopoisk",
         linkDemo: "https://n00kieee.github.io/kinopoisk-api",
-        info: "Lorem ipsum dolor sit amet",
+        info: `Unofficial api kinopoisk.ru. Getting top 20 movies.`,
         lang: [
           {
             id: Date.now(),
@@ -85,7 +87,7 @@ export default {
         name: "Internet shop",
         linkGitHub: "https://github.com/",
         linkDemo: "https://github.com/",
-        info: "Lorem ipsum dolor sit amet",
+        info: "A simple online store with registration and adding products to the cart.",
         lang: [
           {
             id: Date.now(),
@@ -93,24 +95,20 @@ export default {
           },
           {
             id: Date.now(),
-            name: "JS",
+            name: "FakeApi",
           },
         ],
       },
       {
         id: 3,
-        name: "Game",
+        name: "Budget App",
         linkGitHub: "https://github.com/",
         linkDemo: "https://github.com/",
-        info: "Lorem ipsum dolor sit amet",
+        info: "Simple budget app.",
         lang: [
           {
             id: Date.now(),
             name: "Vue",
-          },
-          {
-            id: Date.now(),
-            name: "JS",
           },
         ],
       },
