@@ -24,14 +24,14 @@
             v-model="name"
             id="name"
             :type="name"
-            :label="Name"
+            label="Name"
             placeholder="Your Name"
           />
           <CustomInput
             v-model="email"
             id="email"
             :type="email"
-            :label="Email"
+            label="Email"
             placeholder="Your Email"
           />
 
