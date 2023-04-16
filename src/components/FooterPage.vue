@@ -1,13 +1,13 @@
 <template>
   <footer>
     <div class="social-footer">
-      <a href="#">
+      <a href="https://t.me/n00kiee" target="_blank">
         <TelegramIcon />
       </a>
-      <a href="#">
+      <a href="https://discord.com/users/n00kie#3461/" target="_blank">
         <DiscordIcon />
       </a>
-      <a href="#">
+      <a href="https://www.instagram.com/n00kie_0/" target="_blank">
         <InstagramIcon />
       </a>
     </div>

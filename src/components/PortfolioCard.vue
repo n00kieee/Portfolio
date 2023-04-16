@@ -85,7 +85,7 @@ export default {
       {
         id: 2,
         name: "Internet shop",
-        linkGitHub: "https://github.com/",
+        linkGitHub: "https://github.com/n00kieee/interner-shop",
         linkDemo: "https://github.com/",
         info: "A simple online store with registration and adding products to the cart.",
         lang: [
@@ -102,7 +102,7 @@ export default {
       {
         id: 3,
         name: "Budget App",
-        linkGitHub: "https://github.com/",
+        linkGitHub: "https://github.com/n00kieee/budgetApp",
         linkDemo: "https://github.com/",
         info: "Simple budget app.",
         lang: [

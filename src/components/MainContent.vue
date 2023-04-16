@@ -2,17 +2,17 @@
   <section>
     <div class="content-info">
       <div class="content-social" data-aos="fade-up" data-aos-duration="3000">
-        <a href="#">
-          <GitHubIcon/>
+        <a href="https://github.com/n00kieee" target="_blank">
+          <GitHubIcon />
         </a>
-        <a href="#">
-          <TelegramIcon/>
+        <a href="https://t.me/n00kiee" target="_blank">
+          <TelegramIcon />
         </a>
-        <a href="#">
-          <DiscordIcon/>
+        <a href="https://discord.com/users/n00kie#3461/" target="_blank">
+          <DiscordIcon />
         </a>
-        <a href="#">
-          <InstagramIcon/>
+        <a href="https://www.instagram.com/n00kie_0/" target="_blank">
+          <InstagramIcon />
         </a>
       </div>
 
@@ -29,12 +29,11 @@
           <span class="blinking-cursor">|</span>
           <span class="cursor" :class="{ typing: typeStatus }">&nbsp;</span>
         </h2>
-        <p class="bio">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque
-          consectetur cum doloremque ducimus eum, exercitationem hic, illo
-          laborum laudantium molestias officiis possimus, quisquam repellendus
-          reprehenderit soluta ut vitae voluptates
-        </p>
+        <ul class="bio">
+          <li>I am a beginner web developer.I am a beginner web developer.I am a beginner web developer.I am a beginner web developer.</li>
+          <li>I am a beginner web developer.I am a beginner web developer.I am a beginner web developer.</li>
+          <li>I am a beginner web developer.I am a beginner web developer.</li>
+        </ul>
       </div>
 
       <div class="email" data-aos="fade-up" data-aos-duration="3000">
@@ -55,7 +54,7 @@ export default {
     GitHubIcon,
     TelegramIcon,
     DiscordIcon,
-    InstagramIcon
+    InstagramIcon,
   },
   name: "MainContent",
   data: () => {

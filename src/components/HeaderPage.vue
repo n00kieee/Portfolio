@@ -1,11 +1,10 @@
 <template>
   <header :class="{ 'headroom--unpinned': scrolled }" @scroll="handleScroll">
-    <!--  TODO: Вынести лого в компонент  -->
-    <div class="logo">
-      <!--   TODO: Доделать   -->
-      <a href="#"> </a>
+    <div class="logo" data-aos="fade-right" data-aos-duration="3000">
+      <a href="#">
+        <LogoIcon />
+      </a>
     </div>
-    <!--  TODO: Вынести в компонент  -->
     <nav class="header-nav" data-aos="fade-left" data-aos-duration="3000">
       <a href="#home">Home</a>
       <a href="#skills">Skills</a>
@@ -16,8 +15,11 @@
 </template>
 
 <script>
+import LogoIcon from "@/components/Icons/LogoIcon.vue";
+
 export default {
   name: "HeaderPage",
+  components: { LogoIcon },
   data() {
     return {
       limitPosition: 50,
