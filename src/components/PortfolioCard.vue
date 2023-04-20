@@ -84,10 +84,10 @@ export default {
       },
       {
         id: 2,
-        name: "Internet shop",
+        name: "re:Store clone",
         linkGitHub: "https://github.com/n00kieee/interner-shop",
         linkDemo: "https://github.com/",
-        info: "A simple online store with registration and adding products to the cart.",
+        info: "re:Store clone.",
         lang: [
           {
             id: Date.now(),
