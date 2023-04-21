@@ -1,11 +1,12 @@
 <template>
   <section>
-    <div class="section-name">
-      <h1
-        data-aos="fade-left"
-        data-aos-offset="300"
-        data-aos-easing="ease-in-sine"
-      >
+    <div class="section-name"
+         data-aos="fade-left"
+         data-aos-offset="300"
+         data-aos-easing="ease-in-sine"
+    >
+      <h1>
+        <span>04. </span>
         If you have questions. Contact me using the form below.
       </h1>
     </div>

@@ -6,10 +6,10 @@
       </a>
     </div>
     <nav class="header-nav" data-aos="fade-left" data-aos-duration="3000">
-      <a href="#home">Home</a>
-      <a href="#skills">Skills</a>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#contact">Contact</a>
+      <a href="#home"><span>01. </span>Home</a>
+      <a href="#skills"><span>02. </span>Skills</a>
+      <a href="#portfolio"><span>03. </span>Portfolio</a>
+      <a href="#contact"><span>04. </span>Contact</a>
     </nav>
   </header>
 </template>

@@ -1,35 +1,40 @@
 <template>
   <section>
-    <div class="section-name">
-      <h1
-        data-aos="fade-right"
-        data-aos-offset="300"
-        data-aos-easing="ease-in-sine"
-      >
+    <div class="section-name"
+         data-aos="fade-right"
+         data-aos-offset="300"
+         data-aos-easing="ease-in-sine"
+    >
+      <h1>
+        <span>03. </span>
         Portfolio
       </h1>
     </div>
     <div class="container">
       <div
-        class="project-card"
-        v-for="project in project"
-        :key="project"
-        data-aos="fade-right"
-        data-aos-offset="300"
-        data-aos-easing="ease-in-sine"
+          class="project-card"
+          v-for="project in project"
+          :key="project"
+          data-aos="fade-right"
+          data-aos-offset="300"
+          data-aos-easing="ease-in-sine"
       >
         <div class="project-top">
           <div class="project-folder">
             <FolderIcon/>
           </div>
           <div class="project-link">
-            <a v-bind:href="project.linkDemo" target="_blank">
+            <a v-bind:href="project.linkDemo"
+               target="_blank"
+               :class="{'tooltip left': project.toolTip}"
+               :tooltip-text="project.toolTip"
+            >
               <ExternalLinkIcon/>
             </a>
             <a
-              v-bind:href="project.linkGitHub"
-              target="_blank"
-              aria-label="Github"
+                v-bind:href="project.linkGitHub"
+                target="_blank"
+                aria-label="Github"
             >
               <GitHubIcon/>
             </a>
@@ -85,9 +90,10 @@ export default {
       {
         id: 2,
         name: "re:Store clone",
-        linkGitHub: "https://github.com/n00kieee/interner-shop",
-        linkDemo: "https://github.com/",
+        linkGitHub: "https://github.com/n00kieee/web-shop",
+        // linkDemo: "https://github.com/",
         info: "re:Store clone.",
+        toolTip: 'Developing',
         lang: [
           {
             id: Date.now(),
@@ -95,7 +101,19 @@ export default {
           },
           {
             id: Date.now(),
-            name: "FakeApi",
+            name: "TypeScript",
+          },
+          {
+            id: Date.now(),
+            name: "MockServer",
+          },
+          {
+            id: Date.now(),
+            name: "Axios",
+          },
+          {
+            id: Date.now(),
+            name: "Pinia",
           },
         ],
       },
@@ -117,4 +135,36 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.tooltip {
+  position: relative;
+  font-size: 18px;
+  padding: 5px;
+}
+
+.tooltip:hover::before {
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.3s ease;
+}
+
+.tooltip::before {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  min-width: max-content;
+  background: var(--mainColor);
+  color: var(--white);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 15px;
+  content: attr(tooltip-text);
+  transition: all 0.3s ease;
+}
+
+.tooltip.left::before {
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+</style>

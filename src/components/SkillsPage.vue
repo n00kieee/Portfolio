@@ -1,28 +1,26 @@
 <template>
   <section>
-    <div class="section-name">
-      <h1
-        data-aos="fade-left"
-        data-aos-offset="300"
-        data-aos-easing="ease-in-sine"
-      >
-        Skills
-      </h1>
+    <div class="section-name"
+         data-aos="fade-left"
+         data-aos-offset="300"
+         data-aos-easing="ease-in-sine"
+    >
+      <h1><span>02. </span>Skills</h1>
     </div>
     <div class="container">
       <div
-        class="skills-card"
-        v-for="skills in skills"
-        :key="skills"
-        data-aos="fade-left"
-        data-aos-offset="300"
-        data-aos-easing="ease-in-sine"
+          class="skills-card"
+          v-for="skills in skills"
+          :key="skills"
+          data-aos="fade-left"
+          data-aos-offset="300"
+          data-aos-easing="ease-in-sine"
       >
         <div class="skills-lang">
           <font-awesome-icon
-            :icon="skills.icon"
-            size="5x"
-            :style="{ color: '#00C4F0' }"
+              :icon="skills.icon"
+              size="5x"
+              :style="{ color: '#00C4F0' }"
           />
           <p>{{ skills.name }}</p>
 
