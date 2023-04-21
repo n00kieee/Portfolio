@@ -1,23 +1,14 @@
 <template>
   <footer>
     <div class="social-footer">
-      <a href="#">
-        <font-awesome-icon
-            icon="fa-brands fa-telegram"
-            size="2x"
-        />
+      <a href="https://t.me/n00kiee" target="_blank">
+        <TelegramIcon />
       </a>
-      <a href="#">
-        <font-awesome-icon
-            icon="fa-brands fa-discord"
-            size="2x"
-        />
+      <a href="https://discord.com/users/n00kie#3461/" target="_blank">
+        <DiscordIcon />
       </a>
-      <a href="#">
-        <font-awesome-icon
-            icon="fa-brands fa-instagram"
-            size="2x"
-        />
+      <a href="https://www.instagram.com/n00kie_0/" target="_blank">
+        <InstagramIcon />
       </a>
     </div>
     <div class="footer-copyright">
@@ -27,18 +18,27 @@
 </template>
 
 <script>
+import TelegramIcon from "@/components/Icons/TelegramIcon.vue";
+import DiscordIcon from "@/components/Icons/DiscordIcon.vue";
+import InstagramIcon from "@/components/Icons/InstagramIcon.vue";
+
 export default {
+  components: {
+    TelegramIcon,
+    DiscordIcon,
+    InstagramIcon
+  },
   name: "FooterPage",
-  data: () => ({
-    year: "",
-  }),
+  data() {
+    return {
+      year: "",
+    };
+  },
   mounted() {
     const newDate = new Date();
     this.year = newDate.getFullYear();
-  }
-}
+  },
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

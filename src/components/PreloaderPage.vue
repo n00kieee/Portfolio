@@ -1,12 +1,14 @@
 <template>
   <transition name="fade">
-    <div class="loader">Loading
+    <div class="loader">
       <span></span>
     </div>
   </transition>
 </template>
 
 <script>
+
+
 export default {
   name: "PreloaderPage",
 }

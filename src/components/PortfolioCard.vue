@@ -2,38 +2,36 @@
   <section>
     <div class="section-name">
       <h1
-          data-aos="fade-right"
-          data-aos-offset="300"
-          data-aos-easing="ease-in-sine"
-      >Portfolio
+        data-aos="fade-right"
+        data-aos-offset="300"
+        data-aos-easing="ease-in-sine"
+      >
+        Portfolio
       </h1>
     </div>
     <div class="container">
-      <div class="project-card"
-           v-for="project in project"
-           :key="project"
-           data-aos="fade-right"
-           data-aos-offset="300"
-           data-aos-easing="ease-in-sine"
+      <div
+        class="project-card"
+        v-for="project in project"
+        :key="project"
+        data-aos="fade-right"
+        data-aos-offset="300"
+        data-aos-easing="ease-in-sine"
       >
         <div class="project-top">
           <div class="project-folder">
-            <font-awesome-icon
-                :icon="iconFolder"
-                size="2x"
-                color="#00C4F0FF"
-            />
+            <FolderIcon/>
           </div>
           <div class="project-link">
             <a v-bind:href="project.linkDemo" target="_blank">
-              <font-awesome-icon
-                  :icon="iconLaptop"
-              />
+              <ExternalLinkIcon/>
             </a>
-            <a v-bind:href="project.linkGitHub" target="_blank" aria-label="Github">
-              <font-awesome-icon
-                  :icon="iconGitHub"
-              />
+            <a
+              v-bind:href="project.linkGitHub"
+              target="_blank"
+              aria-label="Github"
+            >
+              <GitHubIcon/>
             </a>
           </div>
         </div>
@@ -44,10 +42,7 @@
           <p>{{ project.info }}</p>
         </div>
         <div class="project-features">
-          <div class="project-lang"
-               v-for="i in project.lang"
-               :key="i.id"
-          >
+          <div class="project-lang" v-for="i in project.lang" :key="i.id">
             <p>{{ i.name }}</p>
           </div>
         </div>
@@ -57,72 +52,69 @@
 </template>
 
 <script>
-import {faLaptopCode, faFolder} from "@fortawesome/free-solid-svg-icons";
-import {faGithub} from "@fortawesome/free-brands-svg-icons";
+import GitHubIcon from "@/components/Icons/GitHubIcon.vue";
+import ExternalLinkIcon from "@/components/Icons/ExternalLinkIcon.vue";
+import FolderIcon from "@/components/Icons/FolderIcon.vue";
 
 export default {
+  components: {
+    GitHubIcon,
+    ExternalLinkIcon,
+    FolderIcon
+  },
   name: "PortfolioCard",
   data: () => ({
-    iconLaptop: faLaptopCode,
-    iconFolder: faFolder,
-    iconGitHub: faGithub,
     project: [
       {
         id: 1,
         name: "Kinopoisk API",
         linkGitHub: "https://github.com/n00kieee/api-kinopoisk",
         linkDemo: "https://n00kieee.github.io/kinopoisk-api",
-        info: "Lorem ipsum dolor sit amet",
+        info: `Unofficial api kinopoisk.ru. Getting top 20 movies.`,
         lang: [
           {
             id: Date.now(),
-            name: "Vue"
+            name: "Vue",
           },
           {
             id: Date.now(),
-            name: "Axios"
+            name: "Axios",
           },
-        ]
+        ],
       },
       {
         id: 2,
-        name: "Internet shop",
-        linkGitHub: "https://github.com/",
+        name: "re:Store clone",
+        linkGitHub: "https://github.com/n00kieee/interner-shop",
         linkDemo: "https://github.com/",
-        info: "Lorem ipsum dolor sit amet",
+        info: "re:Store clone.",
         lang: [
           {
             id: Date.now(),
-            name: "Vue"
+            name: "Vue",
           },
           {
             id: Date.now(),
-            name: "JS"
+            name: "FakeApi",
           },
-        ]
+        ],
       },
       {
         id: 3,
-        name: "Game",
-        linkGitHub: "https://github.com/",
+        name: "Budget App",
+        linkGitHub: "https://github.com/n00kieee/budgetApp",
         linkDemo: "https://github.com/",
-        info: "Lorem ipsum dolor sit amet",
+        info: "Simple budget app.",
         lang: [
           {
             id: Date.now(),
-            name: "Vue"
+            name: "Vue",
           },
-          {
-            id: Date.now(),
-            name: "JS"
-          },
-        ]
+        ],
       },
     ],
   }),
-}
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

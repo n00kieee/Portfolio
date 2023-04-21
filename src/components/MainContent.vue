@@ -1,59 +1,42 @@
 <template>
   <section>
     <div class="content-info">
-      <div class="content-social"
-           data-aos="fade-up"
-           data-aos-duration="3000"
-      >
-        <a href="#">
-          <font-awesome-icon
-              icon="fa-brands fa-github"
-              size="2x"
-          />
+      <div class="content-social" data-aos="fade-up" data-aos-duration="3000">
+        <a href="https://github.com/n00kieee" target="_blank">
+          <GitHubIcon />
         </a>
-        <a href="#">
-          <font-awesome-icon
-              icon="fa-brands fa-telegram-plane"
-              size="2x"
-          />
+        <a href="https://t.me/n00kiee" target="_blank">
+          <TelegramIcon />
         </a>
-        <a href="#">
-          <font-awesome-icon
-              icon="fa-brands fa-discord"
-              size="2x"
-          />
+        <a href="https://discord.com/users/n00kie#3461/" target="_blank">
+          <DiscordIcon />
         </a>
-        <a href="#">
-          <font-awesome-icon
-              icon="fa-brands fa-instagram"
-              size="2x"
-          />
+        <a href="https://www.instagram.com/n00kie_0/" target="_blank">
+          <InstagramIcon />
         </a>
       </div>
 
-      <div class="info"
-           data-aos="fade-right"
-           data-aos-offset="300"
-           data-aos-easing="ease-in-sine"
+      <div
+        class="info"
+        data-aos="fade-right"
+        data-aos-offset="300"
+        data-aos-easing="ease-in-sine"
       >
         <h1>Hello 👋</h1>
 
-        <h2 class="info-me">I'm <span>{{ typeValue }}</span>
+        <h2 class="info-me">
+          I'm <span>{{ typeValue }}</span>
           <span class="blinking-cursor">|</span>
           <span class="cursor" :class="{ typing: typeStatus }">&nbsp;</span>
         </h2>
-        <p class="bio">Lorem ipsum dolor sit amet, consectetur
-          adipisicing elit. Atque consectetur cum
-          doloremque ducimus eum, exercitationem
-          hic, illo laborum laudantium molestias
-          officiis possimus, quisquam repellendus
-          reprehenderit soluta ut vitae voluptates</p>
+        <ul class="bio">
+          <li>I am a beginner web developer.I am a beginner web developer.I am a beginner web developer.I am a beginner web developer.</li>
+          <li>I am a beginner web developer.I am a beginner web developer.I am a beginner web developer.</li>
+          <li>I am a beginner web developer.I am a beginner web developer.</li>
+        </ul>
       </div>
 
-      <div class="email"
-           data-aos="fade-up"
-           data-aos-duration="3000"
-      >
+      <div class="email" data-aos="fade-up" data-aos-duration="3000">
         <a href="mailto:stak3k@gmail.com">stak3k@gmail.com</a>
       </div>
     </div>
@@ -61,7 +44,18 @@
 </template>
 
 <script>
+import GitHubIcon from "@/components/Icons/GitHubIcon.vue";
+import TelegramIcon from "@/components/Icons/TelegramIcon.vue";
+import DiscordIcon from "@/components/Icons/DiscordIcon.vue";
+import InstagramIcon from "@/components/Icons/InstagramIcon.vue";
+
 export default {
+  components: {
+    GitHubIcon,
+    TelegramIcon,
+    DiscordIcon,
+    InstagramIcon,
+  },
   name: "MainContent",
   data: () => {
     return {
@@ -80,11 +74,14 @@ export default {
   },
   methods: {
     typeText() {
-      if (this.charIndex < this.displayTextArray[this.displayTextArrayIndex].length) {
+      if (
+        this.charIndex <
+        this.displayTextArray[this.displayTextArrayIndex].length
+      ) {
         if (!this.typeStatus) this.typeStatus = true;
-        this.typeValue += this.displayTextArray[this.displayTextArrayIndex].charAt(
-            this.charIndex
-        );
+        this.typeValue += this.displayTextArray[
+          this.displayTextArrayIndex
+        ].charAt(this.charIndex);
         this.charIndex += 1;
         setTimeout(this.typeText, this.typingSpeed);
       } else {
@@ -95,10 +92,9 @@ export default {
     eraseText() {
       if (this.charIndex > 0) {
         if (!this.typeStatus) this.typeStatus = true;
-        this.typeValue = this.displayTextArray[this.displayTextArrayIndex].substring(
-            0,
-            this.charIndex - 1
-        );
+        this.typeValue = this.displayTextArray[
+          this.displayTextArrayIndex
+        ].substring(0, this.charIndex - 1);
         this.charIndex -= 1;
         setTimeout(this.eraseText, this.erasingSpeed);
       } else {
@@ -110,7 +106,7 @@ export default {
       }
     },
   },
-}
+};
 </script>
 
 <style scoped>
@@ -126,7 +122,7 @@ export default {
     color: transparent;
   }
   50% {
-    color: #00C4F0FF;
+    color: #00c4f0ff;
   }
 }
 </style>

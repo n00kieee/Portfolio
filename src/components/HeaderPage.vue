@@ -1,14 +1,11 @@
 <template>
-  <header :class="{'headroom--unpinned': scrolled}" @scroll="handleScroll">
-    <div class="logo">
+  <header :class="{ 'headroom--unpinned': scrolled }" @scroll="handleScroll">
+    <div class="logo" data-aos="fade-right" data-aos-duration="3000">
       <a href="#">
-
+        <LogoIcon />
       </a>
     </div>
-    <nav class="header-nav"
-         data-aos="fade-left"
-         data-aos-duration="3000"
-    >
+    <nav class="header-nav" data-aos="fade-left" data-aos-duration="3000">
       <a href="#home">Home</a>
       <a href="#skills">Skills</a>
       <a href="#portfolio">Portfolio</a>
@@ -18,18 +15,24 @@
 </template>
 
 <script>
+import LogoIcon from "@/components/Icons/LogoIcon.vue";
+
 export default {
   name: "HeaderPage",
+  components: { LogoIcon },
   data() {
     return {
       limitPosition: 50,
       scrolled: false,
-      lastPosition: 0
-    }
+      lastPosition: 0,
+    };
   },
   methods: {
     handleScroll() {
-      if (this.lastPosition < window.scrollY && this.limitPosition < window.scrollY) {
+      if (
+        this.lastPosition < window.scrollY &&
+        this.limitPosition < window.scrollY
+      ) {
         this.scrolled = true;
       }
       if (this.lastPosition > window.scrollY) {
@@ -43,8 +46,8 @@ export default {
   },
   destroyed() {
     window.removeEventListener("scroll", this.handleScroll);
-  }
-}
+  },
+};
 </script>
 
 <style scoped>
