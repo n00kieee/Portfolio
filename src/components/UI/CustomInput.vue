@@ -29,10 +29,10 @@ export default {
       default: "",
     },
     required: {
-      default: true
+      default: true,
     },
     modelValue: {
-      type: [String, Number],
+      type: String,
       default: "",
     },
     type: {
@@ -40,9 +40,10 @@ export default {
       default: "text",
     },
   },
+  emits: ["update: modelValue"],
   methods: {
     inputHandler(event) {
-      this.$emit("modelValue", event.target.value);
+      this.$emit("update: modelValue", event.target.value);
     },
   },
 };

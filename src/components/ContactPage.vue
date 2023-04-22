@@ -1,9 +1,10 @@
 <template>
   <section>
-    <div class="section-name"
-         data-aos="fade-left"
-         data-aos-offset="300"
-         data-aos-easing="ease-in-sine"
+    <div
+      class="section-name"
+      data-aos="fade-left"
+      data-aos-offset="300"
+      data-aos-easing="ease-in-sine"
     >
       <h1>
         <span>04. </span>
@@ -34,14 +35,12 @@
             <CustomInput
               v-model="name"
               id="name"
-              :type="name"
               label="Name"
               placeholder="Your Name"
             />
             <CustomInput
               v-model="email"
               id="email"
-              :type="email"
               label="Email"
               placeholder="Your Email"
             />
@@ -112,7 +111,8 @@ export default {
         setTimeout(() => {
           this.isLoad = false;
         }, 2000);
-        await emailJs.sendForm(
+        console.log(this.name, this.email);
+      const response = await emailJs.sendForm(
           "service_j9eiehd",
           "template_j4rkg8s",
           e.target,
@@ -123,6 +123,7 @@ export default {
             message: this.message,
           }
         );
+        console.log(response);
       } catch (error) {
         this.errorText = "Error";
       }

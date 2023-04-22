@@ -30,9 +30,9 @@
           <span class="cursor" :class="{ typing: typeStatus }">&nbsp;</span>
         </h2>
         <ul class="bio">
-          <li>I am a beginner web developer.I am a beginner web developer.I am a beginner web developer.I am a beginner web developer.</li>
-          <li>I am a beginner web developer.I am a beginner web developer.I am a beginner web developer.</li>
-          <li>I am a beginner web developer.I am a beginner web developer.</li>
+          <li>I am a beginner web developer.</li>
+          <li>I actively study JS, Ts, Vue and develop in these areas.</li>
+          <li>I like to learn new technologies and I'm not afraid of the unknown.</li>
         </ul>
       </div>
 
