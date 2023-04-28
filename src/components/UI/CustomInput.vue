@@ -8,6 +8,7 @@
     :value="modelValue"
     :placeholder="placeholder"
     :required="required"
+    :name="name"
     @input="inputHandler"
   />
 </template>
@@ -21,6 +22,10 @@ export default {
       default: "",
     },
     label: {
+      type: String,
+      default: "",
+    },
+    name: {
       type: String,
       default: "",
     },
@@ -40,10 +45,10 @@ export default {
       default: "text",
     },
   },
-  emits: ["update: modelValue"],
+  emits: ["update:modelValue"],
   methods: {
     inputHandler(event) {
-      this.$emit("update: modelValue", event.target.value);
+      this.$emit("update:modelValue", event.target.value);
     },
   },
 };

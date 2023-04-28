@@ -24,61 +24,64 @@
       >
         Contact me
       </CustomButton>
-      <div
-        class="form-container"
-        @click.self="closeForm"
-        v-if="isClick === true"
-        data-aos="zoom-in"
-      >
-        <div class="form-contact">
-          <form @submit.prevent="sendEmail">
-            <CustomInput
-              v-model="name"
-              id="name"
-              label="Name"
-              placeholder="Your Name"
-            />
-            <CustomInput
-              v-model="email"
-              id="email"
-              label="Email"
-              placeholder="Your Email"
-            />
+        <div
+          class="form-container"
+          @click.self="closeForm"
+          v-if="isClick === true"
+          data-aos="zoom-in"
+        >
+          <div class="form-contact">
+            <form @submit.prevent="sendEmail">
+              <CustomInput
+                v-model="name"
+                name="name"
+                id="name"
+                label="Name"
+                placeholder="Your Name"
+              />
+              <CustomInput
+                v-model="email"
+                name="email"
+                type="email"
+                id="email"
+                label="Email"
+                placeholder="Your Email"
+              />
 
-            <CustomTextArea
-              v-model="message"
-              name="message"
-              :cols="30"
-              :rows="5"
-              placeholder="Message"
-            >
-            </CustomTextArea>
+              <CustomTextArea
+                v-model="message"
+                name="message"
+                :cols="30"
+                :rows="5"
+                placeholder="Message"
+              >
+              </CustomTextArea>
 
-            <CustomButton
-              type="submit"
-              :background-color="'bodyColor'"
-              :color="'white'"
-              :border="'1px solid var(--mainColor)'"
-              :hover-color="'var(--mainColor)'"
-              :class="{ 'btn-send--is-active': isLoad }"
-            >
-              <span v-show="!isLoad">Send</span>
-              <span v-show="isLoad">{{ errorText }} {{ sendText }}</span>
-            </CustomButton>
+              <CustomButton
+                type="submit"
+                :background-color="'bodyColor'"
+                :color="'white'"
+                :border="'1px solid var(--mainColor)'"
+                :hover-color="'var(--mainColor)'"
+                :class="{ 'btn-send--is-active': isLoad }"
+              >
+                <span v-show="!isLoad">Send</span>
+                <span v-show="isLoad">{{ errorText }} {{ sendText }}</span>
+              </CustomButton>
 
-            <CustomButton
-              :background-color="'bodyColor'"
-              :color="'white'"
-              :border="'1px solid var(--red)'"
-              :hover-color="'var(--red)'"
-              class="btn-close"
-              @click="closeForm"
-            >
-              Close
-            </CustomButton>
-          </form>
+              <CustomButton
+                :background-color="'bodyColor'"
+                :color="'white'"
+                :border="'1px solid var(--red)'"
+                :hover-color="'var(--red)'"
+                class="btn-close"
+                @click="closeForm"
+              >
+                Close
+              </CustomButton>
+            </form>
+          </div>
         </div>
-      </div>
     </div>
   </section>
 </template>
@@ -112,7 +115,7 @@ export default {
           this.isLoad = false;
         }, 2000);
         console.log(this.name, this.email);
-      const response = await emailJs.sendForm(
+        await emailJs.sendForm(
           "service_j9eiehd",
           "template_j4rkg8s",
           e.target,
@@ -123,13 +126,15 @@ export default {
             message: this.message,
           }
         );
-        console.log(response);
       } catch (error) {
         this.errorText = "Error";
       }
       this.name = "";
       this.email = "";
       this.message = "";
+      setTimeout(() => {
+        this.isClick = false;
+        }, 3000)
     },
     openForm() {
       this.isClick = true;
@@ -141,4 +146,6 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+
+</style>
