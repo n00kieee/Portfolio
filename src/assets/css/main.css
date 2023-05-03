@@ -80,10 +80,6 @@ header {
     padding: 0 15px;
 }
 
-header.out {
-    transform: translateY(-100%);
-}
-
 footer {
     display: flex;
     justify-content: space-evenly;
@@ -465,7 +461,7 @@ form {
 }
 
 @media screen and (min-width: 768px) {
-    .dropdown {
+    .burger-btn {
         display: none;
     }
 
@@ -480,7 +476,14 @@ form {
     }
 
     header {
-        justify-content: flex-start;
+        display: flex;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+        -webkit-box-align: center;
+        align-items: center;
+        position: relative;
+        width: 100%;
+        z-index: 12;
     }
 
     .info {

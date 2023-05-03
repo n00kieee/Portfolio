@@ -1,11 +1,9 @@
 <template>
   <div class="sidebar">
     <div class="sidebar-backdrop"></div>
-    <transition name="slide">
       <div class="sidebar-panel">
         <slot></slot>
       </div>
-    </transition>
   </div>
 </template>
 
@@ -27,25 +25,26 @@ export default {
 }
 
 .sidebar-panel {
-  overflow-y: auto;
-  background-color: #130f40;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  flex-direction: column;
+  -webkit-flex-direction: column;
   position: fixed;
-  left: 0;
   top: 0;
+  bottom: 0;
+  right: 0;
+  padding: 50px 10px;
+  width: min(75vw, 400px);
   height: 100vh;
-  z-index: 999;
-  padding: 3rem 20px 2rem 20px;
-  width: 300px;
-}
-
-.slide-enter-active,
-.slide-leave-active {
-  transition: transform 0.2s ease;
-}
-
-.slide-enter,
-.slide-leave-to {
-  transform: translateX(-100%);
-  transition: all 150ms ease-in 0s;
+  outline: 0;
+  background-color: #130f40;
+  box-shadow: -10px 0 30px -15px var(--shadow);
+  z-index: 9;
+  transform: translateX(0vw);
+  transition: var(--transition);
+  text-align: center;
 }
 </style>

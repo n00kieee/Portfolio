@@ -1,7 +1,8 @@
 <template>
   <div class="burger"
        :class="{ 'active' : active }"
-       @click.prevent="toggleActive">
+       @click.prevent="toggleActive"
+  >
     <slot>
       <button type="button" class="burger-button" title="Menu">
         <span class="burger-bar burger-bar--1"></span>
@@ -24,31 +25,31 @@ export default {
   },
   methods: {
     toggleActive () {
-      this.$emit('burger')
+      this.$emit("burger")
     }
   }
 }
 </script>
 
 <style scoped>
-button {
-  cursor: pointer;
-}
-
-button:focus {
-  outline: 0;
-}
-
 .burger-button {
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
   position: relative;
-  height: 30px;
-  width: 32px;
-  display: block;
-  z-index: 60;
+  left: 145px;
+  z-index: 10;
+  margin-right: -15px;
+  padding: 15px;
   border: 0;
-  border-radius: 0;
   background-color: transparent;
-  pointer-events: all;
+  color: inherit;
+  text-transform: none;
+  transition-timing-function: linear;
+  transition-duration: 0.15s;
+  transition-property: opacity, filter;
   transition: transform .6s cubic-bezier(.165, .84, .44, 1);
 }
 
@@ -62,14 +63,6 @@ button:focus {
   width: auto;
   margin-top: -1px;
   transition: transform .6s cubic-bezier(.165, .84, .44, 1), opacity .3s cubic-bezier(.165, .84, .44, 1), background-color .6s cubic-bezier(.165, .84, .44, 1);
-}
-
-.burger {
-  position: absolute;
-  right: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .burger-bar--1 {
@@ -108,11 +101,5 @@ button:focus {
 
 .burger.active .burger-bar--3 {
   transform: rotate(-45deg)
-}
-
-@media screen and (min-width: 768px) {
-  .burger {
-    display: none;
-  }
 }
 </style>

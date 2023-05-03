@@ -1,17 +1,19 @@
 <template>
   <transition name="fade">
     <div class="loader">
+      <LogoIcon/>
       <span></span>
     </div>
   </transition>
 </template>
 
 <script>
-
+import LogoIcon from "@/components/Icons/LogoIcon.vue";
 
 export default {
   name: "PreloaderPage",
-}
+  components: { LogoIcon },
+};
 </script>
 
 <style scoped>
@@ -33,11 +35,11 @@ export default {
   letter-spacing: 4px;
   text-transform: uppercase;
   text-shadow: 0 0 10px #006eff;
-  box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 .loader:before {
-  content: '';
+  content: "";
   position: absolute;
   top: -3px;
   left: -3px;
@@ -48,6 +50,12 @@ export default {
   border-right: 3px solid #006eff;
   border-radius: 50%;
   animation: animateC 2s linear infinite;
+}
+
+.loader svg {
+  position: absolute;
+  top: 32%;
+  right: 32%;
 }
 
 span {
@@ -63,7 +71,7 @@ span {
 }
 
 span:before {
-  content: '';
+  content: "";
   position: absolute;
   width: 16px;
   height: 16px;
@@ -92,11 +100,13 @@ span:before {
   }
 }
 
-.fade-enter-active, .fade-leave-active {
+.fade-enter-active,
+.fade-leave-active {
   transition: opacity 1s;
 }
 
-.fade-enter, .fade-leave-to {
+.fade-enter,
+.fade-leave-to {
   opacity: 0;
 }
 </style>
