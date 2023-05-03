@@ -12,17 +12,29 @@
       <a href="#contact"><span>04. </span>Contact</a>
     </nav>
 
-    <BurgerBtnComponent/>
-    <BurgerComponent>
-      <ul class="sidebar-panel-nav">
-        <li><a href="#home"><span>01. </span>Home</a></li>
-        <li><a href="#skills"><span>02. </span>Skills</a></li>
-        <li><a href="#portfolio"><span>03. </span>Portfolio</a></li>
-        <li><a href="#contact"><span>04. </span>Contact</a></li>
-      </ul>
-    </BurgerComponent>
-
+    <BurgerBtnComponent
+      @burger="isOpen = !isOpen"
+      :active="isOpen"
+    />
   </header>
+
+  <BurgerComponent v-if="isOpen">
+    <ul class="sidebar-panel-nav">
+      <li>
+        <a @click="isOpen = !isOpen" href="#home"><span>01. </span>Home</a>
+      </li>
+      <li>
+        <a @click="isOpen = !isOpen" href="#skills"><span>02. </span>Skills</a>
+      </li>
+      <li>
+        <a @click="isOpen = !isOpen" href="#portfolio"><span>03. </span>Portfolio</a>
+      </li>
+      <li>
+        <a @click="isOpen = !isOpen" href="#contact"><span>04. </span>Contact</a>
+      </li>
+    </ul>
+  </BurgerComponent>
+
 </template>
 
 <script>
@@ -34,7 +46,13 @@ import BurgerComponent from "@/components/BurgerComponent.vue";
 
 export default {
   name: "HeaderPage",
-  components: {BurgerComponent, BurgerBtnComponent, CloseIcon, MenuIcon, LogoIcon },
+  components: {
+    BurgerComponent,
+    BurgerBtnComponent,
+    CloseIcon,
+    MenuIcon,
+    LogoIcon,
+  },
   data() {
     return {
       limitPosition: 50,
@@ -67,6 +85,15 @@ export default {
 </script>
 
 <style scoped>
+.sidebar-panel-nav a {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.sidebar-panel-nav span {
+  color: var(--mainColor);
+}
+
 .headroom {
   will-change: transform;
   transition: transform 200ms linear;

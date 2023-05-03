@@ -67,6 +67,9 @@ header {
     flex-wrap: wrap;
     position: fixed;
     backdrop-filter: blur(10px);
+    -moz-backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    -webkit-appearance: none;
     transition: var(--transition);
     box-shadow: var(--shadow);
     top: 0;
@@ -462,9 +465,9 @@ form {
 }
 
 @media screen and (min-width: 768px) {
-    /*.hamburger-btn {*/
-    /*    display: none;*/
-    /*}*/
+    .burger {
+        display: none;
+    }
 
     .dropdown {
         display: none;

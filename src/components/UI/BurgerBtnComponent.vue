@@ -1,7 +1,7 @@
 <template>
   <div class="burger"
-       :class="{ 'active' : isOpen }"
-       @click.prevent="toggle">
+       :class="{ 'active' : active }"
+       @click.prevent="toggleActive">
     <slot>
       <button type="button" class="burger-button" title="Menu">
         <span class="burger-bar burger-bar--1"></span>
@@ -14,15 +14,17 @@
 
 <script>
 export default {
-  name: "BurgerBtnComponent",
-  data() {
-    return {
-      isOpen: false
+  name: 'BurgerBtnComponent',
+  props: {
+    active: {
+      type: Boolean,
+      required: true,
+      default: false
     }
   },
   methods: {
-    toggle() {
-      this.isOpen = !this.isOpen
+    toggleActive () {
+      this.$emit('burger')
     }
   }
 }
@@ -60,6 +62,14 @@ button:focus {
   width: auto;
   margin-top: -1px;
   transition: transform .6s cubic-bezier(.165, .84, .44, 1), opacity .3s cubic-bezier(.165, .84, .44, 1), background-color .6s cubic-bezier(.165, .84, .44, 1);
+}
+
+.burger {
+  position: absolute;
+  right: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .burger-bar--1 {
