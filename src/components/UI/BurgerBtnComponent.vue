@@ -109,4 +109,10 @@ button:focus {
 .burger.active .burger-bar--3 {
   transform: rotate(-45deg)
 }
+
+@media screen and (min-width: 768px) {
+  .burger {
+    display: none;
+  }
+}
 </style>
