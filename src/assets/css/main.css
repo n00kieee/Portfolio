@@ -347,7 +347,7 @@ section {
     margin: 5px;
     padding: 8px;
     transition: var(--transition);
-    cursor: text;
+    cursor: pointer;
 }
 
 .project-lang:hover {

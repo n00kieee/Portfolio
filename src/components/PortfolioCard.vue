@@ -130,6 +130,52 @@ export default {
           },
         ],
       },
+      {
+        id: 4,
+        name: "Weather App",
+        linkGitHub: "https://github.com/n00kieee/weatherApp",
+        linkDemo: "https://n00kieee.github.io/weather-app/",
+        info: "Weather Api",
+        lang: [
+          {
+            id: Date.now(),
+            name: "Vue",
+          },
+          {
+            id: Date.now(),
+            name: "Axios",
+          },
+        ],
+      },
+      {
+        id: 5,
+        name: "Task-App",
+        linkGitHub: "https://github.com/n00kieee/TaskApp",
+        linkDemo: "https://n00kieee.github.io/task-app/",
+        info: "Task-App",
+        lang: [
+          {
+            id: Date.now(),
+            name: "Vue",
+          },
+          {
+            id: Date.now(),
+            name: "Vuex",
+          },
+          {
+            id: Date.now(),
+            name: "Router",
+          },
+          {
+            id: Date.now(),
+            name: "Firebase",
+          },
+          {
+            id: Date.now(),
+            name: "TypeScript",
+          },
+        ],
+      },
     ],
   }),
 };
