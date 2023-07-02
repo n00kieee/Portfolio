@@ -1,10 +1,6 @@
 <template>
   <section>
-    <div class="section-name"
-         data-aos="fade-left"
-         data-aos-offset="300"
-         data-aos-easing="ease-in-sine"
-    >
+    <div class="section-name">
       <h1><span>02. </span>Skills</h1>
     </div>
     <div class="container">
@@ -12,9 +8,6 @@
           class="skills-card"
           v-for="skills in skills"
           :key="skills"
-          data-aos="fade-left"
-          data-aos-offset="300"
-          data-aos-easing="ease-in-sine"
       >
         <div class="skills-lang">
           <font-awesome-icon

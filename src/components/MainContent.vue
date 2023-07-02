@@ -18,9 +18,6 @@
 
       <div
         class="info"
-        data-aos="fade-right"
-        data-aos-offset="300"
-        data-aos-easing="ease-in-sine"
       >
         <h1>Hello 👋</h1>
 

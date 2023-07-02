@@ -1,10 +1,6 @@
 <template>
   <section>
-    <div class="section-name"
-         data-aos="fade-right"
-         data-aos-offset="300"
-         data-aos-easing="ease-in-sine"
-    >
+    <div class="section-name">
       <h1>
         <span>03. </span>
         Portfolio
@@ -15,9 +11,6 @@
           class="project-card"
           v-for="project in project"
           :key="project"
-          data-aos="fade-right"
-          data-aos-offset="300"
-          data-aos-easing="ease-in-sine"
       >
         <div class="project-top">
           <div class="project-folder">

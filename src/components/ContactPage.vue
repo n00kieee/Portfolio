@@ -1,11 +1,7 @@
 <template>
   <section>
     <div
-      class="section-name"
-      data-aos="fade-left"
-      data-aos-offset="300"
-      data-aos-easing="ease-in-sine"
-    >
+      class="section-name">
       <h1>
         <span>04. </span>
         If you have questions. Contact me using the form below.
@@ -28,7 +24,6 @@
           class="form-container"
           @click.self="closeForm"
           v-if="isClick === true"
-          data-aos="zoom-in"
         >
           <div class="form-contact">
             <form @submit.prevent="sendEmail">

@@ -18,7 +18,6 @@ import SkillsPage from "@/components/SkillsPage.vue";
 import PortfolioCard from "@/components/PortfolioCard.vue";
 import ContactPage from "@/components/ContactPage.vue";
 import FooterPage from "@/components/FooterPage.vue";
-import AOS from "aos";
 
 export default {
   components: {
@@ -38,10 +37,9 @@ export default {
       if (document.readyState === "complete") {
         setTimeout(() => {
           this.isLoaded = false;
-        }, 2000);
+        }, 100);
       }
     };
-    AOS.init();
   },
 };
 </script>
