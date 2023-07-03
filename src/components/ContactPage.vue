@@ -109,7 +109,6 @@ export default {
         setTimeout(() => {
           this.isLoad = false;
         }, 2000);
-        console.log(this.name, this.email);
         await emailJs.sendForm(
           "service_j9eiehd",
           "template_j4rkg8s",
@@ -142,5 +141,65 @@ export default {
 </script>
 
 <style>
+.form-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.form-contact {
+  width: 450px;
+  height: 450px;
+  background-color: rgba(30, 11, 99, 0.71);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.btn-contact {
+  margin: 100px;
+}
+
+.btn-contact:hover {
+  background-color: var(--mainColor);
+}
+
+.btn-close {
+  margin-left: 10px;
+}
+
+.btn-close:hover {
+  background-color: var(--red);
+}
+
+.btn-send:disabled {
+  cursor: default;
+}
+
+.btn-send--is-active .btn-send__text {
+  opacity: 0;
+}
+
+.btn-send--is-active:after {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  content: "";
+  border-radius: 24px;
+  background-clip: padding-box;
+  border: var(--mainColor) 2px solid;
+  border-top-color: var(--white);
+  animation: rotate 750ms linear infinite;
+  margin: -13px -7px -2px 3px;
+}
+
+form {
+  margin: 60px;
+}
 </style>

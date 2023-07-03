@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="content-info">
-      <div class="content-social" data-aos="fade-up" data-aos-duration="3000">
+      <div class="content-social">
         <a href="https://github.com/n00kieee" target="_blank">
           <GitHubIcon />
         </a>
@@ -16,11 +16,8 @@
         </a>
       </div>
 
-      <div
-        class="info"
-      >
+      <div class="info">
         <h1>Hello 👋</h1>
-
         <h2 class="info-me">
           I'm <span>Stanislav</span>
         </h2>
@@ -56,6 +53,105 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
+.content-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: auto;
+  padding: 0 15px;
+  width: 570px;
+}
 
+.content-social {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  left: 35px;
+  margin: 0;
+  padding: 0;
+  bottom: 0;
+  z-index: 999;
+}
+
+.content-social a {
+  margin-bottom: 20px;
+}
+
+.content-social a:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 120px -55px var(--mainColor);
+}
+
+.content-social svg {
+  font-size: 20px;
+}
+
+.content-social::after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 90px;
+  margin: 0 auto;
+  background-color: var(--mainColor);
+}
+
+.info {
+  width: 500px;
+}
+
+.info-me {
+  margin: 0;
+  font-size: 45px;
+  color: var(--ligth);
+}
+
+.bio {
+  margin: 20px 0 0;
+  max-width: 540px;
+  color: var(--white);
+}
+
+.bio li {
+  margin-bottom: 5px;
+}
+
+.content-info span {
+  color: var(--mainColor);
+}
+
+.email {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  right: 35px;
+  bottom: 0;
+  z-index: 999;
+}
+
+.email a {
+  font-size: 15px;
+  margin: 5px auto;
+  padding: 10px;
+  letter-spacing: 0.1em;
+  -webkit-writing-mode: vertical-rl;
+  writing-mode: vertical-rl;
+}
+
+.email a:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 120px -55px var(--mainColor);
+}
+
+.email::after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 90px;
+  margin: 0 auto;
+  background-color: var(--mainColor);
+}
 </style>

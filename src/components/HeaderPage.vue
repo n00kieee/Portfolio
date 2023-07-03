@@ -58,7 +58,8 @@
     </header>
 
     <div class="helpers">
-      <button class="light-mode"><MoonIcon/></button>
+      <button @click="lightMode = !lightMode" v-if="!lightMode" class="light-mode"><MoonIcon/></button>
+      <button @click="lightMode = !lightMode" v-if="lightMode" class="light-mode"><LightIcon/></button>
     </div>
 
     <div class="split-content">
@@ -77,10 +78,12 @@ import BurgerComponent from "@/components/BurgerComponent.vue";
 import CustomButton from "@/components/UI/CustomButton.vue";
 import MoonIcon from "@/components/Icons/MoonIcon.vue";
 import Split from "@/components/Icons/Split.vue";
+import LightIcon from "@/components/Icons/LightIcon.vue";
 
 export default {
   name: "HeaderPage",
   components: {
+    LightIcon,
     Split,
     MoonIcon,
     BurgerComponent,
@@ -92,13 +95,14 @@ export default {
   },
   data() {
     return {
-      isOpen: false
+      isOpen: false,
+      lightMode: false
     };
   },
 };
 </script>
 
-<style scoped>
+<style>
 .header-content {
   display: flex;
   justify-content: space-evenly;
@@ -109,7 +113,7 @@ export default {
   -webkit-backdrop-filter: blur(10px);
   -webkit-appearance: none;
   transition: var(--transition);
-  background: linear-gradient(0deg, var(--color-homepage-dark), var(--color-homepage-light));
+  background: linear-gradient(0deg, var(--color-dark), var(--color-light));
   width: 100%;
   height: 300px;
   margin: auto;
@@ -158,13 +162,18 @@ header {
   color: var(--white);
 }
 
+.light-mode:hover {
+  opacity: 1;
+  transition: all 0.5s;
+}
+
 .split-content {
   overflow: hidden;
   display: block;
   position: absolute;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
+  left: 0;
+  right: 0;
+  bottom: 0;
   width: 100%;
   height: 90px;
   transform: translateY(1px);
@@ -175,7 +184,7 @@ header {
   position: absolute;
   left: -3%;
   right: -3%;
-  bottom: 0px;
+  bottom: 0;
   width: 106%;
   min-width: 600px;
   max-width: unset;
@@ -183,12 +192,6 @@ header {
 
 .split-content svg {
   fill: var(--bodyColor);
-}
-
-.light-mode:hover {
-  opacity: 1;
-  transition: all 0.5s;
-  color: var(--mainColor)
 }
 
 .burger-btn {

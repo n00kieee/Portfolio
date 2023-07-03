@@ -174,7 +174,92 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
+.project-card {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  flex-basis: 25%;
+  width: 500px;
+  height: 500px;
+  background: linear-gradient(0deg, var(--color-dark), var(--color-light));
+  border-radius: 15px;
+  margin: 20px;
+}
+
+.project-card:hover {
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.project-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.project-folder {
+  position: relative;
+  margin-left: 10px;
+  bottom: 55px;
+}
+
+.project-folder svg {
+  width: 40px;
+  height: 40px;
+  color: var(--mainColor);
+}
+
+.project-link {
+  position: relative;
+  bottom: 55px;
+}
+
+.project-link svg {
+  width: 24px;
+  height: 24px;
+}
+
+.project-link a {
+  margin-right: 10px;
+}
+
+.project-name {
+  font-size: 22px;
+}
+
+.project-info {
+  padding: 30px;
+  font-size: 17px;
+}
+
+.project-features {
+  display: flex;
+}
+
+.project-lang {
+  border: 1px solid var(--mainColor);
+  border-radius: 8px;
+  margin: 5px;
+  padding: 8px;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.project-lang:hover {
+  background-color: var(--mainColor);
+}
+
+.btn-send:hover,
+.btn-send:focus {
+  background-color: var(--mainColor);
+}
+
 .tooltip {
   position: relative;
   font-size: 18px;
