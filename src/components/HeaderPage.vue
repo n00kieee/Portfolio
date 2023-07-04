@@ -6,7 +6,6 @@
           <LogoIcon/>
         </a>
       </div>
-
       <div class="header-nav">
         <nav>
           <a href="#home"><span>01. </span>Home</a>
@@ -15,56 +14,33 @@
           <a href="#contact"><span>04. </span>Contact</a>
         </nav>
       </div>
-
-      <div class="burger-btn">
-        <BurgerBtnComponent
-            @burger="isOpen = !isOpen"
-            :active="isOpen"
-        />
-      </div>
-      <div class="sidebar-panel-nav">
-        <transition name="translateX">
-          <BurgerComponent v-if="isOpen">
-            <nav class="burger-nav">
-              <ul>
-                <li>
-                  <a @click="isOpen = !isOpen" href="#home">Home</a>
-                </li>
-                <li>
-                  <a @click="isOpen = !isOpen" href="#skills">Skills</a>
-                </li>
-                <li>
-                  <a @click="isOpen = !isOpen" href="#portfolio">Portfolio</a>
-                </li>
-                <li>
-                  <a @click="isOpen = !isOpen" href="#contact">Contact</a>
-                </li>
-              </ul>
-              <CustomButton
-                  :width="'150px'"
-                  :height="'50px'"
-                  :background-color="'bodyColor'"
-                  :color="'white'"
-                  :hover-color="'var(--mainColor)'"
-                  :border="'1px solid var(--mainColor)'"
-                  class="btn-contact"
-              >
-                Resume
-              </CustomButton>
-            </nav>
-          </BurgerComponent>
-        </transition>
-      </div>
+      <BurgerBtnComponent
+          @burger="isOpen = !isOpen"
+          :active="isOpen"
+      />
+      <BurgerComponent v-if="isOpen">
+        <div class="blur">
+          <nav class="nav-burger">
+            <div class="links">
+              <a href="#home">Home</a>
+              <a href="#skills">Skills</a>
+              <a href="#portfolio">Portfolio</a>
+              <a href="#contact">Contact</a>
+            </div>
+            <div class="light-mode-burger">
+              <CustomThemeButton/>
+            </div>
+          </nav>
+        </div>
+      </BurgerComponent>
+      <!--            <a class="resume" href="https://hh.ru/resume/be899c6cff0bb0cc820039ed1f336b6665556f">Resume</a>-->
     </header>
-
     <div class="helpers">
-      <button class="light-mode"><MoonIcon/></button>
+      <CustomThemeButton/>
     </div>
-
     <div class="split-content">
       <Split class="split"/>
     </div>
-
   </div>
 </template>
 
@@ -75,14 +51,14 @@ import CloseIcon from "@/components/Icons/CloseIcon.vue";
 import BurgerBtnComponent from "@/components/UI/CustomBurgerBtn.vue";
 import BurgerComponent from "@/components/BurgerComponent.vue";
 import CustomButton from "@/components/UI/CustomButton.vue";
-import MoonIcon from "@/components/Icons/MoonIcon.vue";
 import Split from "@/components/Icons/Split.vue";
+import CustomThemeButton from "@/components/UI/CustomThemeButton.vue"
 
 export default {
   name: "HeaderPage",
   components: {
+    CustomThemeButton,
     Split,
-    MoonIcon,
     BurgerComponent,
     BurgerBtnComponent,
     CloseIcon,
@@ -92,13 +68,13 @@ export default {
   },
   data() {
     return {
-      isOpen: false
+      isOpen: false,
     };
   },
 };
 </script>
 
-<style scoped>
+<style>
 .header-content {
   display: flex;
   justify-content: space-evenly;
@@ -132,7 +108,7 @@ header {
 }
 
 .header-nav span {
-  color: var(--mainColor);
+  color: var(--color-main);
 }
 
 .header-nav a {
@@ -155,102 +131,97 @@ header {
 
 .light-mode svg {
   cursor: pointer;
-  color: var(--white);
+  color: var(--color-text);
+}
+
+.helpers:hover {
+  opacity: 1;
+  transition: all 0.5s;
+}
+
+.nav-burger {
+  position: fixed;
+  left: 0;
+  top: 200px;
+  width: 75%;
+  height: 75%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+}
+
+.links a {
+  display: block;
+  position: relative;
+  padding: 16px 16px 16px 32px;
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: var(--font-weight-medium);
+  font-size: 28px;
+  animation-duration: 2s;
+  animation-name: slide;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0%);
+  }
+}
+
+.light-mode-burger {
+  display: flex;
+  padding-left: 30px;
+  animation-duration: 2s;
+  animation-name: opacity;
+}
+
+@keyframes opacity {
+  from {
+    opacity: 0;
+    transition: opacity 250ms ease 0ms;
+  }
+
+  to {
+    opacity: 1;
+    transition: opacity 250ms ease 500ms;
+  }
 }
 
 .split-content {
   overflow: hidden;
   display: block;
   position: absolute;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
+  left: 0;
+  right: 0;
+  bottom: 0;
   width: 100%;
   height: 90px;
   transform: translateY(1px);
-  z-index: 3;
+  z-index: 1;
 }
 
 .split {
   position: absolute;
   left: -3%;
   right: -3%;
-  bottom: 0px;
+  bottom: 0;
   width: 106%;
   min-width: 600px;
   max-width: unset;
 }
 
 .split-content svg {
-  fill: var(--bodyColor);
-}
-
-.light-mode:hover {
-  opacity: 1;
-  transition: all 0.5s;
-  color: var(--mainColor)
-}
-
-.burger-btn {
-  width: 32px;
-  height: 32px;
-  z-index: 99;
-}
-
-.burger-nav {
-  display: flex;
-  -webkit-box-pack: justify;
-  justify-content: space-between;
-  -webkit-box-align: center;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  width: 100%;
-  counter-reset: item 0;
-  z-index: 12;
-}
-
-.sidebar-panel-nav ul {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  width: 100%;
-}
-
-.sidebar-panel-nav a {
-  font-size: 16px;
-  font-weight: 600;
-}
-
-.sidebar-panel-nav span {
-  color: var(--mainColor);
-}
-
-.sidebar-panel-nav li {
-  counter-increment: item 1;
-  margin-top: 50px;
-}
-
-.sidebar-panel-nav li::before {
-  content: "0" counter(item) ".";
-  display: block;
-  margin-bottom: 5px;
-  color: var(--mainColor);
-  font-size: 16px;
-}
-
-.translateX-enter {
-  transform: translateX(-200px);
-  opacity: 0;
-}
-
-.translateX-enter-active, .translateX-leave-active {
-  transform-origin: right 0;
-  transition: .3s ease;
-}
-
-.translateX-leave-to {
-  transform: translateX(200px);
-  opacity: 0;
+  fill: var(--color-background);
 }
 </style>

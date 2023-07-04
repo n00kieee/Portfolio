@@ -1,10 +1,6 @@
 <template>
-  <div class="sidebar">
-    <div class="sidebar-backdrop"></div>
-      <div class="sidebar-panel">
-        <slot></slot>
-      </div>
-  </div>
+  <slot>
+  </slot>
 </template>
 
 <script>
@@ -13,38 +9,28 @@ export default {
 };
 </script>
 
-<style scoped>
-.sidebar-backdrop {
-  background-color: rgba(19, 15, 64, 0.4);
+<style>
+.blur {
+  position: fixed;
+  inset: 0;
   width: 100vw;
   height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  cursor: pointer;
+  z-index: 1;
+  background: var(--color-blurred-background);
+  backdrop-filter: blur(8px);
+  animation-duration: 1s;
+  animation-name: opacity;
 }
 
-.sidebar-panel {
-  display: flex;
-  -webkit-box-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  align-items: center;
-  flex-direction: column;
-  -webkit-flex-direction: column;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  padding: 50px 10px;
-  width: min(75vw, 400px);
-  height: 100vh;
-  outline: 0;
-  background-color: #130f40;
-  box-shadow: -10px 0 30px -15px var(--shadow);
-  z-index: 9;
-  transform: translateX(0vw);
-  transition: var(--transition);
-  text-align: center;
+@keyframes opacity {
+  from {
+    opacity: 0;
+    transition: opacity 250ms ease 0ms;
+  }
+
+  to {
+    opacity: 1;
+    transition: opacity 250ms ease 500ms;
+  }
 }
 </style>

@@ -1,14 +1,10 @@
 <template>
-  <div class="burger"
-       :class="{ 'active' : active }"
+  <div class="burger-menu"
+       :class="{ 'close' : active }"
        @click.prevent="toggleActive"
   >
     <slot>
-      <button type="button" class="burger-button" title="Menu">
-        <span class="burger-bar burger-bar--1"></span>
-        <span class="burger-bar burger-bar--2"></span>
-        <span class="burger-bar burger-bar--3"></span>
-      </button>
+      <span></span>
     </slot>
   </div>
 </template>
@@ -24,7 +20,7 @@ export default {
     }
   },
   methods: {
-    toggleActive () {
+    toggleActive() {
       this.$emit("burger")
     }
   }
@@ -32,74 +28,67 @@ export default {
 </script>
 
 <style scoped>
-.burger-button {
-  display: flex;
-  -webkit-box-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  align-items: center;
+.burger-menu {
+  cursor: pointer;
+  height: 27px;
+  width: 27px;
+  margin: 15px;
+  overflow: visible;
   position: relative;
-  left: 145px;
-  z-index: 10;
-  margin-right: -15px;
-  padding: 15px;
-  border: 0;
-  background-color: transparent;
-  color: inherit;
-  text-transform: none;
-  transition-timing-function: linear;
-  transition-duration: 0.15s;
-  transition-property: opacity, filter;
-  transition: transform .6s cubic-bezier(.165, .84, .44, 1);
+  z-index: 5;
 }
 
-.burger-bar {
-  background-color: #ffffff;
+.burger-menu span,
+.burger-menu span:before,
+.burger-menu span:after {
+  background: var(--color-text);
+  display: block;
+  height: 4px;
+  opacity: 1;
   position: absolute;
-  top: 50%;
-  right: 6px;
-  left: 6px;
-  height: 2px;
-  width: auto;
-  margin-top: -1px;
-  transition: transform .6s cubic-bezier(.165, .84, .44, 1), opacity .3s cubic-bezier(.165, .84, .44, 1), background-color .6s cubic-bezier(.165, .84, .44, 1);
+  transition: 0.3s ease-in-out;
 }
 
-.burger-bar--1 {
-  -webkit-transform: translateY(-6px);
-  transform: translateY(-6px);
+.burger-menu span:before,
+.burger-menu span:after {
+  content: "";
 }
 
-.burger-bar--2 {
-  transform-origin: 100% 50%;
-  transform: scaleX(.8);
+.burger-menu span {
+  right: 0;
+  top: 13px;
+  width: 27px;
 }
 
-.burger-button:hover .burger-bar--2 {
-  transform: scaleX(1);
+.burger-menu span:before {
+  left: 0;
+  top: -10px;
+  width: 16px;
 }
 
-.no-touchevents .burger-bar--2:hover {
-  transform: scaleX(1);
+.burger-menu span:after {
+  left: 0;
+  top: 10px;
+  width: 20px;
 }
 
-.burger-bar--3 {
-  transform: translateY(6px);
+.burger-menu.close span {
+  transform: rotate(-45deg);
+  top: 13px;
+  width: 27px;
 }
 
-.burger.active .burger-button {
-  transform: rotate(-180deg);
+.burger-menu.close span:before {
+  top: 0;
+  transform: rotate(90deg);
+  width: 27px;
 }
 
-.burger.active .burger-bar--1 {
-  transform: rotate(45deg)
-}
-
-.burger.active .burger-bar--2 {
+.burger-menu.close span:after {
+  top: 0;
+  left: 0;
+  transform: rotate(90deg);
   opacity: 0;
-}
-
-.burger.active .burger-bar--3 {
-  transform: rotate(-45deg)
+  width: 0;
 }
 </style>

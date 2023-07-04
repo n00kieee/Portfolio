@@ -1,5 +1,5 @@
 <template>
-  <svg width="18" height="18" viewBox="0 0 18 18" style="transform: rotate(40deg);" class="sc-a794b73f-1 cfurEx">
+  <svg width="18" height="18" viewBox="0 0 18 18" style="transform: rotate(40deg);">
     <mask id="moon-mask-main-nav">
       <rect x="0" y="0" width="18" height="18" fill="#FFF"></rect>
       <circle cx="10" cy="2" r="8" fill="black"></circle>

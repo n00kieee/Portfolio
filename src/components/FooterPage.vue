@@ -2,17 +2,17 @@
   <footer>
     <div class="social-footer">
       <a href="https://t.me/n00kiee" target="_blank">
-        <TelegramIcon />
+        <TelegramIcon/>
       </a>
       <a href="https://discord.com/users/n00kie#3461/" target="_blank">
-        <DiscordIcon />
+        <DiscordIcon/>
       </a>
       <a href="https://www.instagram.com/n00kie_0/" target="_blank">
-        <InstagramIcon />
+        <InstagramIcon/>
       </a>
     </div>
     <div class="footer-copyright">
-      <a href="#">Designed by Stanislav Kutsenko {{ year }}</a>
+      <a href="#">© {{ year }} Designed by Stanislav Kutsenko</a>
     </div>
   </footer>
 </template>
@@ -41,4 +41,28 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style>
+footer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: auto;
+  padding: 0 15px;
+  background: linear-gradient(0deg, var(--color-homepage-light), var(--color-homepage-dark));
+}
+
+.social-footer {
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.footer-copyright {
+  padding: 20px;
+}
+
+.social-footer a {
+  margin-left: 20px;
+}
+</style>

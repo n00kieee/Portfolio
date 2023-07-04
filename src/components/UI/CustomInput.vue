@@ -58,7 +58,7 @@ export default {
 input {
   width: 100%;
   padding: 12px;
-  border: 1px solid var(--ligth);
+  border: 1px solid var(--color-text);
   border-radius: 8px;
   box-sizing: border-box;
   margin-top: 6px;
@@ -68,6 +68,6 @@ input {
 
 label {
   float: left;
-  color: var(--ligth);
+  color: var(--color-text);
 }
 </style>

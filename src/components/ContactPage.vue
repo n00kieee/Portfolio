@@ -12,10 +12,10 @@
         @click="openForm"
         :width="'150px'"
         :height="'50px'"
-        :background-color="'bodyColor'"
-        :color="'white'"
-        :hover-color="'var(--mainColor)'"
-        :border="'1px solid var(--mainColor)'"
+        :background-color="'var(--color-homepage-bg)'"
+        :color="'var(--color-text)'"
+        :hover-color="'var(--color-main)'"
+        :border="'1px solid var(--color-main)'"
         class="btn-contact"
       >
         Contact me
@@ -54,10 +54,10 @@
 
               <CustomButton
                 type="submit"
-                :background-color="'bodyColor'"
-                :color="'white'"
-                :border="'1px solid var(--mainColor)'"
-                :hover-color="'var(--mainColor)'"
+                :background-color="'color-homepage-bg'"
+                :color="'var(--color-text)'"
+                :border="'1px solid var(--color-main)'"
+                :hover-color="'var(--color-main)'"
                 :class="{ 'btn-send--is-active': isLoad }"
               >
                 <span v-show="!isLoad">Send</span>
@@ -65,10 +65,10 @@
               </CustomButton>
 
               <CustomButton
-                :background-color="'bodyColor'"
-                :color="'white'"
-                :border="'1px solid var(--red)'"
-                :hover-color="'var(--red)'"
+                :background-color="'color-homepage-bg'"
+                :color="'var(--color-text)'"
+                :border="'1px solid var(--color-red)'"
+                :hover-color="'var(--color-red)'"
                 class="btn-close"
                 @click="closeForm"
               >
@@ -109,7 +109,6 @@ export default {
         setTimeout(() => {
           this.isLoad = false;
         }, 2000);
-        console.log(this.name, this.email);
         await emailJs.sendForm(
           "service_j9eiehd",
           "template_j4rkg8s",
@@ -142,5 +141,64 @@ export default {
 </script>
 
 <style>
+.form-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.form-contact {
+  width: 450px;
+  height: 450px;
+  background-color: var(--color-background);
+  border-radius: 8px;
+  transition: var(--transition);
+}
+
+.btn-contact {
+  margin: 100px;
+}
+
+.btn-contact:hover {
+  background-color: var(--color-main);
+}
+
+.btn-close {
+  margin-left: 10px;
+}
+
+.btn-close:hover {
+  background-color: var(--color-red);
+}
+
+.btn-send:disabled {
+  cursor: default;
+}
+
+.btn-send--is-active .btn-send__text {
+  opacity: 0;
+}
+
+.btn-send--is-active:after {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  content: "";
+  border-radius: 24px;
+  background-clip: padding-box;
+  border: var(--color-main) 2px solid;
+  border-top-color: var(--color-text);
+  animation: rotate 750ms linear infinite;
+  margin: -13px -7px -2px 3px;
+}
+
+form {
+  margin: 60px;
+}
 </style>

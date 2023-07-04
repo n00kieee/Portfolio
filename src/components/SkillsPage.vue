@@ -69,4 +69,46 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style>
+.skills-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+  height: 250px;
+  margin: 50px;
+  background: linear-gradient(0deg, var(--color-homepage-dark), var(--color-homepage-light));
+  border-radius: 15px;
+}
+
+.skills-card:hover {
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.skills-lang {
+  text-align: center;
+}
+
+.skills-progress-bar {
+  width: 160px;
+  border: 1px solid #aaa;
+  border-radius: 10px;
+  padding: 3px;
+  margin: 10px;
+}
+
+.skills-bar {
+  background: linear-gradient(to right, var(--color-main), var(--color-text));
+  height: 20px;
+  width: 15px;
+  border-radius: 7px;
+}
+
+.skills-bar span {
+  float: right;
+  padding: 4px 5px;
+  color: #fff;
+  font-size: 0.7em;
+}
+</style>
