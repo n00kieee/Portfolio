@@ -58,13 +58,12 @@
     </header>
 
     <div class="helpers">
-      <button class="light-mode"><MoonIcon/></button>
+      <CustomThemeButton/>
     </div>
 
     <div class="split-content">
       <Split class="split"/>
     </div>
-
   </div>
 </template>
 
@@ -75,14 +74,14 @@ import CloseIcon from "@/components/Icons/CloseIcon.vue";
 import BurgerBtnComponent from "@/components/UI/CustomBurgerBtn.vue";
 import BurgerComponent from "@/components/BurgerComponent.vue";
 import CustomButton from "@/components/UI/CustomButton.vue";
-import MoonIcon from "@/components/Icons/MoonIcon.vue";
 import Split from "@/components/Icons/Split.vue";
+import CustomThemeButton from "@/components/UI/CustomThemeButton.vue"
 
 export default {
   name: "HeaderPage",
   components: {
+    CustomThemeButton,
     Split,
-    MoonIcon,
     BurgerComponent,
     BurgerBtnComponent,
     CloseIcon,
@@ -92,13 +91,13 @@ export default {
   },
   data() {
     return {
-      isOpen: false
+      isOpen: false,
     };
   },
 };
 </script>
 
-<style scoped>
+<style>
 .header-content {
   display: flex;
   justify-content: space-evenly;
@@ -132,7 +131,7 @@ header {
 }
 
 .header-nav span {
-  color: var(--mainColor);
+  color: var(--color-main);
 }
 
 .header-nav a {
@@ -155,16 +154,21 @@ header {
 
 .light-mode svg {
   cursor: pointer;
-  color: var(--white);
+  color: var(--color-text);
+}
+
+.helpers:hover {
+  opacity: 1;
+  transition: all 0.5s;
 }
 
 .split-content {
   overflow: hidden;
   display: block;
   position: absolute;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
+  left: 0;
+  right: 0;
+  bottom: 0;
   width: 100%;
   height: 90px;
   transform: translateY(1px);
@@ -175,20 +179,14 @@ header {
   position: absolute;
   left: -3%;
   right: -3%;
-  bottom: 0px;
+  bottom: 0;
   width: 106%;
   min-width: 600px;
   max-width: unset;
 }
 
 .split-content svg {
-  fill: var(--bodyColor);
-}
-
-.light-mode:hover {
-  opacity: 1;
-  transition: all 0.5s;
-  color: var(--mainColor)
+  fill: var(--color-homepage-bg);
 }
 
 .burger-btn {
@@ -223,7 +221,7 @@ header {
 }
 
 .sidebar-panel-nav span {
-  color: var(--mainColor);
+  color: var(--color-main);
 }
 
 .sidebar-panel-nav li {
@@ -235,7 +233,7 @@ header {
   content: "0" counter(item) ".";
   display: block;
   margin-bottom: 5px;
-  color: var(--mainColor);
+  color: var(--color-main);
   font-size: 16px;
 }
 

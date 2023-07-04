@@ -37,7 +37,7 @@ export default {
   cursor: pointer;
   border-radius: 8px;
   box-shadow: var(--shadow);
-  border: 1px solid var(--mainColor);
+  border: 1px solid var(--color-main);
   padding: 12px 20px;
   background-color: v-bind(backgroundColor);
   color: v-bind(color);

@@ -13,7 +13,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .sidebar-backdrop {
   background-color: rgba(19, 15, 64, 0.4);
   width: 100vw;
