@@ -1,6 +1,8 @@
 <template>
-  <slot>
-  </slot>
+  <div class="blur">
+    <slot>
+    </slot>
+  </div>
 </template>
 
 <script>
@@ -18,19 +20,5 @@ export default {
   z-index: 1;
   background: var(--color-blurred-background);
   backdrop-filter: blur(8px);
-  animation-duration: 1s;
-  animation-name: opacity;
-}
-
-@keyframes opacity {
-  from {
-    opacity: 0;
-    transition: opacity 250ms ease 0ms;
-  }
-
-  to {
-    opacity: 1;
-    transition: opacity 250ms ease 500ms;
-  }
 }
 </style>

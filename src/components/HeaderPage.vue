@@ -18,21 +18,21 @@
           @burger="isOpen = !isOpen"
           :active="isOpen"
       />
+      <transition name="opacity">
       <BurgerComponent v-if="isOpen">
-        <div class="blur" :class="[isOpen ? blurClass :  clearClass]">
-          <nav class="nav-burger">
-            <div class="links">
-              <a @click="isOpen = !isOpen" href="#home">Home</a>
-              <a @click="isOpen = !isOpen" href="#skills">Skills</a>
-              <a @click="isOpen = !isOpen" href="#portfolio">Portfolio</a>
-              <a @click="isOpen = !isOpen" href="#contact">Contact</a>
-            </div>
-            <div class="light-mode-burger">
-              <CustomThemeButton/>
-            </div>
-          </nav>
-        </div>
+            <nav class="nav-burger">
+              <div class="links">
+                <a @click="isOpen = !isOpen" href="#home">Home</a>
+                <a @click="isOpen = !isOpen" href="#skills">Skills</a>
+                <a @click="isOpen = !isOpen" href="#portfolio">Portfolio</a>
+                <a @click="isOpen = !isOpen" href="#contact">Contact</a>
+              </div>
+              <div class="light-mode-burger">
+                <CustomThemeButton/>
+              </div>
+            </nav>
       </BurgerComponent>
+      </transition>
     </header>
     <div class="helpers">
       <CustomThemeButton/>
@@ -68,32 +68,12 @@ export default {
   data() {
     return {
       isOpen: false,
-      clearClass: 'clear',
-      blurClass: 'blur'
     };
   },
 };
 </script>
 
 <style>
-.clear {
-  opacity: 0;
-  animation-duration: 1s;
-  animation-name: opacity;
-}
-
-@keyframes opacity {
-  from {
-    opacity: 0;
-    transition: opacity 250ms ease 0ms;
-  }
-
-  to {
-    opacity: 1;
-    transition: opacity 250ms ease 500ms;
-  }
-}
-
 .header-content {
   display: flex;
   justify-content: space-evenly;
@@ -244,5 +224,24 @@ header {
 
 .split-content svg {
   fill: var(--color-background);
+}
+
+.opacity-enter-active {
+  animation: opacity .5s;
+}
+.opacity-leave-active {
+  animation: opacity .5s reverse;
+}
+
+@keyframes opacity {
+  from {
+    opacity: 0;
+    transition: opacity 250ms ease 0ms;
+  }
+
+  to {
+    opacity: 1;
+    transition: opacity 250ms ease 500ms;
+  }
 }
 </style>

@@ -20,6 +20,7 @@
       >
         Contact me
       </CustomButton>
+      <transition name="opacity">
         <div
           class="form-container"
           @click.self="closeForm"
@@ -77,6 +78,7 @@
             </form>
           </div>
         </div>
+      </transition>
     </div>
   </section>
 </template>
@@ -200,5 +202,24 @@ export default {
 
 form {
   margin: 60px;
+}
+
+.opacity-enter-active {
+  animation: opacity .5s;
+}
+.opacity-leave-active {
+  animation: opacity .5s reverse;
+}
+
+@keyframes opacity {
+  from {
+    opacity: 0;
+    transition: opacity 250ms ease 0ms;
+  }
+
+  to {
+    opacity: 1;
+    transition: opacity 250ms ease 500ms;
+  }
 }
 </style>
