@@ -19,13 +19,13 @@
           :active="isOpen"
       />
       <BurgerComponent v-if="isOpen">
-        <div class="blur">
+        <div class="blur" :class="[isOpen ? blurClass :  clearClass]">
           <nav class="nav-burger">
             <div class="links">
-              <a href="#home">Home</a>
-              <a href="#skills">Skills</a>
-              <a href="#portfolio">Portfolio</a>
-              <a href="#contact">Contact</a>
+              <a @click="isOpen = !isOpen" href="#home">Home</a>
+              <a @click="isOpen = !isOpen" href="#skills">Skills</a>
+              <a @click="isOpen = !isOpen" href="#portfolio">Portfolio</a>
+              <a @click="isOpen = !isOpen" href="#contact">Contact</a>
             </div>
             <div class="light-mode-burger">
               <CustomThemeButton/>
@@ -33,7 +33,6 @@
           </nav>
         </div>
       </BurgerComponent>
-      <!--            <a class="resume" href="https://hh.ru/resume/be899c6cff0bb0cc820039ed1f336b6665556f">Resume</a>-->
     </header>
     <div class="helpers">
       <CustomThemeButton/>
@@ -69,12 +68,32 @@ export default {
   data() {
     return {
       isOpen: false,
+      clearClass: 'clear',
+      blurClass: 'blur'
     };
   },
 };
 </script>
 
 <style>
+.clear {
+  opacity: 0;
+  animation-duration: 1s;
+  animation-name: opacity;
+}
+
+@keyframes opacity {
+  from {
+    opacity: 0;
+    transition: opacity 250ms ease 0ms;
+  }
+
+  to {
+    opacity: 1;
+    transition: opacity 250ms ease 500ms;
+  }
+}
+
 .header-content {
   display: flex;
   justify-content: space-evenly;
@@ -123,17 +142,6 @@ header {
   margin-right: 32px;
 }
 
-.light-mode {
-  opacity: 0.7;
-  border: none;
-  background: transparent;
-}
-
-.light-mode svg {
-  cursor: pointer;
-  color: var(--color-text);
-}
-
 .helpers:hover {
   opacity: 1;
   transition: all 0.5s;
@@ -142,7 +150,7 @@ header {
 .nav-burger {
   position: fixed;
   left: 0;
-  top: 200px;
+  top: 170px;
   width: 75%;
   height: 75%;
   z-index: 2;
@@ -165,15 +173,29 @@ header {
   color: var(--color-text);
   font-weight: var(--font-weight-medium);
   font-size: 28px;
-  animation-duration: 2s;
   animation-name: slide;
+}
+
+.links a:nth-child(1) {
+  animation-duration: .25s;
+}
+
+.links a:nth-child(2) {
+  animation-duration: .5s;
+}
+
+.links a:nth-child(3) {
+  animation-duration: .75s;
+}
+
+.links a:nth-child(4) {
+  animation-duration: 1s;
 }
 
 @keyframes slide {
   from {
     transform: translateX(-100%);
   }
-
   to {
     transform: translateX(0%);
   }
@@ -191,7 +213,6 @@ header {
     opacity: 0;
     transition: opacity 250ms ease 0ms;
   }
-
   to {
     opacity: 1;
     transition: opacity 250ms ease 500ms;
