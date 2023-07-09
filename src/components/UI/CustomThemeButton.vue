@@ -90,7 +90,7 @@ export default {
   animation: dark 2s;
 }
 
-@keyframes dark {
+@-webkit-keyframes dark {
   0% {
     transform: rotate(0deg);
   }
@@ -107,7 +107,7 @@ export default {
   animation: light 2s;
 }
 
-@keyframes light {
+@-webkit-keyframes light {
   0% {
     transform: rotate(0deg);
   }

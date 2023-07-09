@@ -172,7 +172,7 @@ header {
   animation-duration: 1s;
 }
 
-@keyframes slide {
+@-webkit-keyframes slide {
   from {
     transform: translateX(-100%);
   }
@@ -188,7 +188,7 @@ header {
   animation-name: opacity;
 }
 
-@keyframes opacity {
+@-webkit-keyframes opacity {
   from {
     opacity: 0;
     transition: opacity 250ms ease 0ms;
@@ -234,7 +234,7 @@ header {
   animation: opacity .5s reverse;
 }
 
-@keyframes opacity {
+@-webkit-keyframes opacity {
   from {
     opacity: 0;
     transition: opacity 250ms ease 0ms;

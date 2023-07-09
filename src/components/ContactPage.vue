@@ -211,7 +211,7 @@ form {
   animation: opacity .5s reverse;
 }
 
-@keyframes opacity {
+@-webkit-keyframes opacity {
   from {
     opacity: 0;
     transition: opacity 250ms ease 0ms;

@@ -37,7 +37,7 @@ export default {
       if (document.readyState === "complete") {
         setTimeout(() => {
           this.isLoaded = false;
-        }, 100);
+        }, 1000);
       }
     };
   },
