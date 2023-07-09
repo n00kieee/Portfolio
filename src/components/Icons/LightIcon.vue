@@ -6,18 +6,12 @@
     </mask>
     <circle cx="9" cy="9" fill="var(--color-text)" mask="url(#moon-mask-main-nav)" r="5"></circle>
     <g>
-      <circle cx="17" cy="9" r="1.5" fill="var(--color-text)"
-              style="transform-origin: center center; transform: scale(1);"></circle>
-      <circle cx="13" cy="15.928203" r="1.5" fill="var(--color-text)"
-              style="transform-origin: center center; transform: scale(1);"></circle>
-      <circle cx="5" cy="15.928203" r="1.5" fill="var(--color-text)"
-              style="transform-origin: center center; transform: scale(1);"></circle>
-      <circle cx="1" cy="9" r="1.5" fill="var(--color-text)"
-              style="transform-origin: center center; transform: scale(1);"></circle>
-      <circle cx="5" cy="2.071797" r="1.5" fill="var(--color-text)"
-              style="transform-origin: center center; transform: scale(1);"></circle>
-      <circle cx="13" cy="2.071797" r="1.5" fill="var(--color-text)"
-              style="transform-origin: center center; transform: scale(1);"></circle>
+      <circle cx="17" cy="9" r="1.5" fill="var(--color-text)"></circle>
+      <circle cx="13" cy="15.928203" r="1.5" fill="var(--color-text)"></circle>
+      <circle cx="5" cy="15.928203" r="1.5" fill="var(--color-text)"></circle>
+      <circle cx="1" cy="9" r="1.5" fill="var(--color-text)"></circle>
+      <circle cx="5" cy="2.071797" r="1.5" fill="var(--color-text)"></circle>
+      <circle cx="13" cy="2.071797" r="1.5" fill="var(--color-text)"></circle>
     </g>
   </svg>
 </template>

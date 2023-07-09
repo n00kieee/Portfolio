@@ -7,8 +7,8 @@
         class="switch-checkbox"
     />
     <label for="checkbox" class="switch-label">
-      <span v-if="userTheme === 'dark'"><MoonIcon/></span>
-      <span v-if="userTheme === 'light'"><LightIcon/></span>
+      <span class="dark" v-if="userTheme === 'dark'"><MoonIcon/></span>
+      <span class="light" v-if="userTheme === 'light'"><LightIcon/></span>
       <div
           class="switch-toggle"
           :class="{ 'switch-toggle-checked': userTheme === 'dark' }"
@@ -83,5 +83,39 @@ export default {
 .switch-label:hover {
   opacity: 1;
   transition: all 0.5s;
+}
+
+.dark svg {
+  transform-box: fill-box;
+  animation: dark 2s;
+}
+
+@keyframes dark {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(60deg);
+  }
+  100% {
+    transform: rotate(40deg);
+  }
+}
+
+.light svg  {
+  transform-box: fill-box;
+  animation: light 2s;
+}
+
+@keyframes light {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(110deg);
+  }
+  100% {
+    transform: rotate(90deg);
+  }
 }
 </style>

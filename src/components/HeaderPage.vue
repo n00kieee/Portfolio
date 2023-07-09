@@ -19,19 +19,19 @@
           :active="isOpen"
       />
       <transition name="opacity">
-      <BurgerComponent v-if="isOpen">
-            <nav class="nav-burger">
-              <div class="links">
-                <a @click="isOpen = !isOpen" href="#home">Home</a>
-                <a @click="isOpen = !isOpen" href="#skills">Skills</a>
-                <a @click="isOpen = !isOpen" href="#portfolio">Portfolio</a>
-                <a @click="isOpen = !isOpen" href="#contact">Contact</a>
-              </div>
-              <div class="light-mode-burger">
-                <CustomThemeButton/>
-              </div>
-            </nav>
-      </BurgerComponent>
+        <BurgerComponent v-if="isOpen">
+          <nav class="nav-burger">
+            <div class="links">
+              <a @click="isOpen = !isOpen" href="#home">Home</a>
+              <a @click="isOpen = !isOpen" href="#skills">Skills</a>
+              <a @click="isOpen = !isOpen" href="#portfolio">Portfolio</a>
+              <a @click="isOpen = !isOpen" href="#contact">Contact</a>
+            </div>
+            <div class="light-mode-burger">
+              <CustomThemeButton/>
+            </div>
+          </nav>
+        </BurgerComponent>
       </transition>
     </header>
     <div class="helpers">
@@ -229,6 +229,7 @@ header {
 .opacity-enter-active {
   animation: opacity .5s;
 }
+
 .opacity-leave-active {
   animation: opacity .5s reverse;
 }

@@ -108,7 +108,7 @@ export default {
 .skills-bar span {
   float: right;
   padding: 4px 5px;
-  color: #fff;
+  color: var(--color-text);
   font-size: 0.7em;
 }
 </style>
