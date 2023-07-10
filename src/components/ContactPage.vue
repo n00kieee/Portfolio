@@ -1,7 +1,7 @@
 <template>
   <section>
     <div
-      class="section-name">
+        class="section-name">
       <h1>
         <span>04. </span>
         If you have questions. Contact me using the form below.
@@ -9,69 +9,69 @@
     </div>
     <div class="container" @keydown.esc="closeForm">
       <CustomButton
-        @click="openForm"
-        :width="'150px'"
-        :height="'50px'"
-        :background-color="'var(--color-homepage-bg)'"
-        :color="'var(--color-text)'"
-        :hover-color="'var(--color-main)'"
-        :border="'1px solid var(--color-main)'"
-        class="btn-contact"
+          @click="openForm"
+          :width="'150px'"
+          :height="'50px'"
+          :background-color="'var(--color-homepage-bg)'"
+          :color="'var(--color-text)'"
+          :hover-color="'var(--color-main)'"
+          :border="'1px solid var(--color-main)'"
+          class="btn-contact"
       >
         Contact me
       </CustomButton>
       <transition name="opacity">
         <div
-          class="form-container"
-          @click.self="closeForm"
-          v-if="isClick === true"
+            class="form-container"
+            @click.self="closeForm"
+            v-if="isClick === true"
         >
           <div class="form-contact">
             <form @submit.prevent="sendEmail">
               <CustomInput
-                v-model="name"
-                name="name"
-                id="name"
-                label="Name"
-                placeholder="Your Name"
+                  v-model="name"
+                  name="name"
+                  id="name"
+                  label="Name"
+                  placeholder="Your Name"
               />
               <CustomInput
-                v-model="email"
-                name="email"
-                type="email"
-                id="email"
-                label="Email"
-                placeholder="Your Email"
+                  v-model="email"
+                  name="email"
+                  type="email"
+                  id="email"
+                  label="Email"
+                  placeholder="Your Email"
               />
 
               <CustomTextArea
-                v-model="message"
-                name="message"
-                :cols="30"
-                :rows="5"
-                placeholder="Message"
+                  v-model="message"
+                  name="message"
+                  :cols="30"
+                  :rows="5"
+                  placeholder="Message"
               >
               </CustomTextArea>
 
               <CustomButton
-                type="submit"
-                :background-color="'color-homepage-bg'"
-                :color="'var(--color-text)'"
-                :border="'1px solid var(--color-main)'"
-                :hover-color="'var(--color-main)'"
-                :class="{ 'btn-send--is-active': isLoad }"
+                  type="submit"
+                  :background-color="'color-homepage-bg'"
+                  :color="'var(--color-text)'"
+                  :border="'1px solid var(--color-main)'"
+                  :hover-color="'var(--color-main)'"
+                  :class="{ 'btn-send--is-active': isLoad }"
               >
                 <span v-show="!isLoad">Send</span>
                 <span v-show="isLoad">{{ errorText }} {{ sendText }}</span>
               </CustomButton>
 
               <CustomButton
-                :background-color="'color-homepage-bg'"
-                :color="'var(--color-text)'"
-                :border="'1px solid var(--color-red)'"
-                :hover-color="'var(--color-red)'"
-                class="btn-close"
-                @click="closeForm"
+                  :background-color="'color-homepage-bg'"
+                  :color="'var(--color-text)'"
+                  :border="'1px solid var(--color-red)'"
+                  :hover-color="'var(--color-red)'"
+                  class="btn-close"
+                  @click="closeForm"
               >
                 Close
               </CustomButton>
@@ -91,7 +91,7 @@ import CustomTextArea from "@/components/UI/CustomTextArea.vue";
 
 export default {
   name: "ContactPage",
-  components: { CustomTextArea, CustomInput, CustomButton },
+  components: {CustomTextArea, CustomInput, CustomButton},
   data() {
     return {
       name: "",
@@ -112,15 +112,15 @@ export default {
           this.isLoad = false;
         }, 2000);
         await emailJs.sendForm(
-          "service_j9eiehd",
-          "template_j4rkg8s",
-          e.target,
-          "GaJgQBvIu8C3rmAyO",
-          {
-            name: this.name,
-            email: this.email,
-            message: this.message,
-          }
+            "service_j9eiehd",
+            "template_j4rkg8s",
+            e.target,
+            "GaJgQBvIu8C3rmAyO",
+            {
+              name: this.name,
+              email: this.email,
+              message: this.message,
+            }
         );
       } catch (error) {
         this.errorText = "Error";
@@ -130,13 +130,15 @@ export default {
       this.message = "";
       setTimeout(() => {
         this.isClick = false;
-        }, 3000)
+      }, 3000)
     },
     openForm() {
       this.isClick = true;
+      document.body.classList.add("open");
     },
     closeForm() {
       this.isClick = false;
+      document.body.classList.remove("open");
     },
   },
 };
@@ -207,6 +209,7 @@ form {
 .opacity-enter-active {
   animation: opacity .5s;
 }
+
 .opacity-leave-active {
   animation: opacity .5s reverse;
 }

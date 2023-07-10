@@ -42,6 +42,10 @@ body {
     background: var(--color-homepage-bg);
 }
 
+body.open {
+    overflow-y: hidden;
+}
+
 h1 {
     margin: 0 0 30px 4px;
     color: var(--color-text);
@@ -148,12 +152,20 @@ section {
         z-index: 12;
     }
 
+    .header-content {
+        height: 150px;
+    }
+
     .info {
         text-align: center;
         margin: 0;
     }
 
     .helpers {
+        display: none;
+    }
+
+    .split {
         display: none;
     }
 

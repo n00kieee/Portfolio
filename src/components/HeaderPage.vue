@@ -17,11 +17,12 @@
       <BurgerBtnComponent
           @burger="isOpen = !isOpen"
           :active="isOpen"
+          @click="hide"
       />
       <transition name="opacity">
         <BurgerComponent v-if="isOpen">
           <nav class="nav-burger">
-            <div class="links">
+            <div class="links" @click="hide">
               <a @click="isOpen = !isOpen" href="#home">Home</a>
               <a @click="isOpen = !isOpen" href="#skills">Skills</a>
               <a @click="isOpen = !isOpen" href="#portfolio">Portfolio</a>
@@ -70,10 +71,21 @@ export default {
       isOpen: false,
     };
   },
+  methods: {
+    hide() {
+      if (this.isOpen === true) {
+        document.body.classList.add("open");
+      } else {
+        document.body.classList.remove("open");
+      }
+    },
+  }
 };
 </script>
 
 <style>
+
+
 .header-content {
   display: flex;
   justify-content: space-evenly;
