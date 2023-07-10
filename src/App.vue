@@ -1,6 +1,7 @@
 <template>
   <PreloaderPage v-if="isLoaded" />
   <main v-else>
+    <CustomButtonScroll/>
     <HeaderPage />
     <MainContent id="home" />
     <SkillsPage id="skills" />
@@ -18,9 +19,11 @@ import SkillsPage from "@/components/SkillsPage.vue";
 import PortfolioCard from "@/components/PortfolioCard.vue";
 import ContactPage from "@/components/ContactPage.vue";
 import FooterPage from "@/components/FooterPage.vue";
+import CustomButtonScroll from "@/components/UI/CustomButtonScroll.vue";
 
 export default {
   components: {
+    CustomButtonScroll,
     PreloaderPage,
     HeaderPage,
     MainContent,

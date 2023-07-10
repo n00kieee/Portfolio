@@ -169,6 +169,36 @@ export default {
           },
         ],
       },
+      {
+        id: 6,
+        name: "AnimalWay",
+        linkGitHub: "https://github.com/n00kieee/AnimalWay",
+        // linkDemo: "",
+        info: "Search for missing animals",
+        toolTip: 'Developing',
+        lang: [
+          {
+            id: Date.now(),
+            name: "Vue",
+          },
+          {
+            id: Date.now(),
+            name: "Vuetify"
+          },
+          {
+            id: Date.now(),
+            name: "Pinia",
+          },
+          {
+            id: Date.now(),
+            name: "Router",
+          },
+          {
+            id: Date.now(),
+            name: "Firebase",
+          },
+        ],
+      },
     ],
   }),
 };
