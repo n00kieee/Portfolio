@@ -199,6 +199,19 @@ export default {
           },
         ],
       },
+      {
+        id: 7,
+        name: "Radio-app",
+        linkGitHub: "https://github.com/n00kieee/Radio-app",
+        linkDemo: "https://n00kieee.github.io/radio-app/",
+        info: "Radio",
+        lang: [
+          {
+            id: Date.now(),
+            name: "Vue",
+          },
+        ],
+      },
     ],
   }),
 };
